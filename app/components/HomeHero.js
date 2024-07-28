@@ -1,0 +1,9 @@
+const HomeHero = () => {
+    return (
+      <section id="hero" className="">
+        <h1 className="uppercase">Home page</h1>
+      </section>
+    );
+}
+
+export default HomeHero;
