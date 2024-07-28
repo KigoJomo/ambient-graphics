@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <header className="w-[95%] h-fit overflow-hidden flex flex-col items-center gap-0 fixed top-4 md:top-6 backdrop-blur-3xl z-10">
-      <div className="w-full flex items-center justify-between border border-gray-500 rounded-2xl gap-8 px-4 md:px-8 py-2">
+      <div className="w-full flex items-center justify-between border border-ag-purple rounded-2xl gap-8 px-4 md:px-8 py-2">
         <Link href="/" className="logo flex items-center gap-2">
           <Image src={logo} alt="logo" className="h-8 w-8" />
         </Link>
@@ -45,7 +45,7 @@ const Header = () => {
           menuOpen ? "h-screen" : "h-0"
         } transition-height duration-300 flex flex-col items-center gap-20 overflow-hidden`}
       >
-        <ul className="flex flex-col items-start gap-4 w-full h-fit border border-gray-500 rounded-2xl p-4 pb-12 mt-8">
+        <ul className="flex flex-col items-start gap-4 w-full h-fit border border-ag-purple rounded-2xl p-4 pb-12 mt-8">
           <Link
             href="/"
             className="capitalize w-full px-4 py-4 border-b border-gray-700"
@@ -65,7 +65,7 @@ const Header = () => {
           ))}
         </ul>
         <span
-          className="close-menu material-symbols-outlined text-4xl w-20 aspect-square border border-gray-500 rounded-full flex items-center justify-center cursor-pointer"
+          className="close-menu material-symbols-outlined text-4xl w-20 aspect-square border border-ag-purple rounded-full flex items-center justify-center cursor-pointer"
           onClick={closeMenu}
         >
           close

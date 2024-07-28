@@ -9,8 +9,10 @@
 
 :root {
   --ag-white: #fefefe;
+  --ag-white-secondary: #8d8d8d;
   --ag-black: #0e0e0e;
   --ag-brown: #7a6447;
+  --ag-purple: #a05af1;
   --font-size: clamp(20px, 1.1vw, 32px);
 }
 
@@ -31,10 +33,17 @@
           user-select: none;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-transform: capitalize;
 }
 
+p, p span {
+  color: var(--ag-white-secondary);
+}
+
+button,
 a {
   cursor: url("/pointer.svg"), auto;
 }
@@ -47,11 +56,47 @@ h2 {
   font-size: calc(var(--font-size) * 1.618 * 1.618);
 }
 
-h1 {
+h1,
+h1 span {
   font-family: "Syne", sans-serif;
   font-weight: 800;
   font-size: calc(var(--font-size) * 1.618 * 1.618 * 1.618);
-  line-height: calc(var(--font-size) * 1.618 * 1.618 * 1.618 * 1.4);
+  line-height: calc(var(--font-size) * 1.618 * 1.618 * 1.618 * 1.1);
+}
+
+.split-text span:hover {
+  color: var(--ag-purple);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.tech-button {
+  aspect-ratio: 1;
+  position: relative;
+}
+.tech-button:hover::before {
+  animation-play-state: paused;
+}
+.tech-button::after {
+  position: absolute;
+  content: "";
+  height: 30%;
+  aspect-ratio: 1;
+  background: url("/images/arrow.png") center/cover no-repeat;
+}
+.tech-button::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  aspect-ratio: 1;
+  background: url("/images/tech_circle.png") center/cover no-repeat;
+  animation: spin 5s infinite linear;
 }
 
 html {
@@ -69,15 +114,27 @@ html body {
 html body::-webkit-scrollbar {
   display: none;
 }
+html body main {
+  height: -moz-fit-content;
+  height: fit-content;
+}
 html body main section {
   width: 100%;
-  height: 100%;
-  padding: 1rem 3rem;
-  padding-top: 5rem;
+  min-height: 100dvh;
+  padding: 2rem 3rem;
+  padding-top: 6rem;
+}
+html body main #hero {
+  background: url("/images/black_panther.jpeg") center/cover no-repeat, rgba(20, 20, 20, 0.6980392157);
+  background-blend-mode: multiply;
+  background-attachment: fixed;
 }
 @media (max-width: 767px) {
   html body main section {
     padding: 1rem 1rem;
     padding-top: 5rem;
+  }
+  html body main #hero {
+    background-image: url("/images/black_panther_vertical.jpg");
   }
 }
