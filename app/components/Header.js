@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-[95%] h-fit overflow-hidden flex flex-col items-center gap-0 fixed top-4 md:top-6 backdrop-blur-md z-10">
+    <header className="w-[95%] h-fit overflow-hidden flex flex-col items-center gap-0 fixed top-4 md:top-6 backdrop-blur-3xl z-10">
       <div className="w-full flex items-center justify-between border border-gray-500 rounded-2xl gap-8 px-4 md:px-8 py-2">
         <Link href="/" className="logo flex items-center gap-2">
           <Image src={logo} alt="logo" className="h-8 w-8" />

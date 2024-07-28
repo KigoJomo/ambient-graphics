@@ -1,7 +1,7 @@
 const Shop = () => {
     return (
       <section>
-        <h1 className="uppercase">Art <br/>to Own</h1>
+        <h1 className="uppercase">Art <br/>worth <br/>Owning</h1>
       </section>
     );
 }
