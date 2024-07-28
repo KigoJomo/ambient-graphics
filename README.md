@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ambient Graphics
 
-## Getting Started
+Ambient Graphics is a web application for showcasing and selling artwork. Built using Next.js and styled with Tailwind CSS, this project provides a modern and responsive interface for users to explore a gallery, learn about the artist, shop for artwork, and contact the artist.
 
-First, run the development server:
+## Table of Contents
+
+- [Ambient Graphics](#ambient-graphics)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Development](#development)
+    - [Production](#production)
+  - [Folder Structure](#folder-structure)
+  - [Contributing](#contributing)
+  - [License](#license)
+
+## Features
+
+- **Gallery:** Browse a collection of artworks.
+- **About:** Learn about the artist.
+- **Shop:** Purchase artwork directly from the website.
+- **Contact:** Send messages to the artist.
+
+## Installation
+
+To get started with Ambient Graphics, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/ambient-graphics.git
+   cd ambient-graphics
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## Usage
+
+### Development
+
+To start the development server, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+To build the application for production, run:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+``` bash
+ambient-graphics/
+├── app/
+│   ├── layout.js
+│   ├── page.js
+│   ├── globals.css
+├── components/
+│   ├── Header.js
+│   ├── Footer.js
+│   ├── Hero.js
+│   ├── ArtworkCard.js
+│   ├── ProductCard.js
+├── pages/
+│   ├── _app.js
+│   ├── index.js
+│   ├── gallery.js
+│   ├── about.js
+│   ├── shop.js
+│   ├── contact.js
+│   ├── product/
+│   │   ├── [id].js
+├── public/
+│   ├── favicon.ico
+│   ├── next.svg
+│   ├── vercel.svg
+├── .eslintrc.json
+├── .gitignore
+├── jsconfig.json
+├── next.config.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contributions are welcome! Please open an issue or submit a pull request for any bugs, improvements, or new features.
 
-## Deploy on Vercel
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Open a pull request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
