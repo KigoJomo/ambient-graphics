@@ -11,9 +11,7 @@ Ambient Graphics is a web application for showcasing and selling artwork. Built 
   - [Usage](#usage)
     - [Development](#development)
     - [Production](#production)
-  - [Folder Structure](#folder-structure)
   - [Contributing](#contributing)
-  - [License](#license)
 
 ## Features
 
@@ -29,7 +27,7 @@ To get started with Ambient Graphics, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/ambient-graphics.git
+   git clone https://github.com/KigoJomo/ambient-graphics.git
    cd ambient-graphics
    ```
 
@@ -66,44 +64,6 @@ npm run build
 npm start
 ```
 
-## Folder Structure
-
-``` bash
-ambient-graphics/
-├── app/
-│   ├── layout.js
-│   ├── page.js
-│   ├── globals.css
-├── components/
-│   ├── Header.js
-│   ├── Footer.js
-│   ├── Hero.js
-│   ├── ArtworkCard.js
-│   ├── ProductCard.js
-├── pages/
-│   ├── _app.js
-│   ├── index.js
-│   ├── gallery.js
-│   ├── about.js
-│   ├── shop.js
-│   ├── contact.js
-│   ├── product/
-│   │   ├── [id].js
-├── public/
-│   ├── favicon.ico
-│   ├── next.svg
-│   ├── vercel.svg
-├── .eslintrc.json
-├── .gitignore
-├── jsconfig.json
-├── next.config.js
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── README.md
-├── tailwind.config.js
-```
-
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any bugs, improvements, or new features.
@@ -113,7 +73,3 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 3. Commit your changes (`git commit -m 'Add new feature'`)
 4. Push to the branch (`git push origin feature-branch`)
 5. Open a pull request
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
