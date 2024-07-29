@@ -140,6 +140,14 @@ html {
         background-blend-mode: multiply;
         background-attachment: fixed;
       }
+
+      @media (min-width: 1400px){
+        section{
+          padding: 2rem 10rem;
+          padding-top: 7rem;
+        }
+      }
+
       @media (max-width: 767px) {
         section {
           padding: 1rem 1rem;

@@ -129,6 +129,12 @@ html body main #hero {
   background-blend-mode: multiply;
   background-attachment: fixed;
 }
+@media (min-width: 1400px) {
+  html body main section {
+    padding: 2rem 10rem;
+    padding-top: 7rem;
+  }
+}
 @media (max-width: 767px) {
   html body main section {
     padding: 1rem 1rem;
