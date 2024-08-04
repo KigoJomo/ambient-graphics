@@ -1,8 +1,10 @@
+import GalleryIntro from "../components/gallery/GalleryIntro";
+
 const Gallery = () => {
     return (
-        <section>
-            <h1 className="uppercase">our <br/> signature <br/> pieces</h1>
-        </section>
+        <>
+            <GalleryIntro />
+        </>
     )
 }
 

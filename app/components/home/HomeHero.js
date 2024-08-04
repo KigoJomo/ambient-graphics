@@ -1,0 +1,49 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import TechButton from "../TechButton";
+import SplitText from "../SplitText";
+import TypewrittenText from "../TypewrittenText";
+
+const HomeHero = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = document.body.scrollTop;
+      setScrollPosition(position);
+    };
+
+    document.body.addEventListener("scroll", handleScroll);
+    return () => {
+      document.body.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const zoomLevel = scrollPosition / 300;
+
+  return (
+    <section
+      id="hero"
+      className="flex flex-col items-start justify-between gap-8 relative"
+      style={{ backgroundSize: `${100 + zoomLevel * 100}%` }}
+    >
+      <div className="absolute right-9 top-1/2 transform -translate-y-1/2 z-10"></div>
+      <div className="line absolute h-screen w-0 border border-ag-brown top-0 right-9 md:right-24 -z-0 opacity-50"></div>
+      <div className="z-10">
+        <SplitText word={"ambient"} />
+        <SplitText word={"graphics"} />
+      </div>
+      <div className="bottom w-full flex flex-col gap-4">
+        <div className="w-full flex flex-col-reverse md:flex-row items-start md:items-center justify-start gap-9">
+          <div className="md:w-2/5">
+            <TypewrittenText text="Discover a captivating collection of digital art, illustrations, and unique designs that transform everyday moments into extraordinary experiences. Find the perfect piece to inspire and elevate your space." />
+          </div>
+          <TechButton to={"/gallery"} />
+        </div>
+        <div className="w-full h-8 bg-ag-brown"></div>
+      </div>
+    </section>
+  );
+};
+
+export default HomeHero;

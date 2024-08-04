@@ -1,9 +1,11 @@
+import AboutIntro from "../components/about/AboutIntro";
+
 const About = () => {
-    return (
-        <section>
-            <h1 className="uppercase">about <br/>us</h1>
-        </section>
-    )
-}
+  return (
+    <>
+      <AboutIntro />
+    </>
+  );
+};
 
 export default About;
