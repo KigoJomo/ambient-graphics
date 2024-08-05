@@ -1,146 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-}
 
 :root {
-  --ag-white: #fefefe;
-  --ag-white-secondary: #8d8d8d;
-  --ag-black: #0e0e0e;
-  --ag-brown: #7a6447;
-  --ag-purple: #a05af1;
-  --font-size: clamp(20px, 1.1vw, 32px);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
-@media (max-width: 767px) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --font-size: clamp(8px, 1vw, 32px);
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Space Grotesk", sans-serif;
-  color: var(--ag-white);
-  transition: all 0.3s ease;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
-h1,
-h2,
-h3 {
-  text-transform: capitalize;
-}
-
-p, p span {
-  color: var(--ag-white-secondary);
-}
-
-button,
-a {
-  cursor: url("/pointer.svg"), auto;
-}
-
-h3 {
-  font-size: calc(var(--font-size) * 1.618);
-}
-
-h2 {
-  font-size: calc(var(--font-size) * 1.618 * 1.618);
-}
-
-h1,
-h1 span {
-  font-family: "Syne", sans-serif;
-  font-weight: 800;
-  font-size: calc(var(--font-size) * 1.618 * 1.618 * 1.618);
-  line-height: calc(var(--font-size) * 1.618 * 1.618 * 1.618 * 1.1);
-}
-
-.split-text span:hover {
-  color: var(--ag-purple);
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.tech-button {
-  aspect-ratio: 1;
-  position: relative;
-}
-.tech-button:hover::before {
-  animation-play-state: paused;
-}
-.tech-button::after {
-  position: absolute;
-  content: "";
-  height: 30%;
-  aspect-ratio: 1;
-  background: url("/images/arrow.png") center/cover no-repeat;
-}
-.tech-button::before {
-  position: absolute;
-  content: "";
-  height: 100%;
-  aspect-ratio: 1;
-  background: url("/images/tech_circle.png") center/cover no-repeat;
-  animation: spin 5s infinite linear;
-}
-
-html {
-  height: 100dvh;
-  width: 100vw;
-  overflow: hidden;
-}
-html body {
-  height: 100dvh;
-  width: 100vw;
-  overflow-x: hidden;
-  background: var(--ag-black);
-  cursor: url("/cursor.svg"), auto;
-}
-html body::-webkit-scrollbar {
-  display: none;
-}
-html body main {
-  height: -moz-fit-content;
-  height: fit-content;
-}
-html body main section {
-  width: 100%;
-  min-height: 100dvh;
-  padding: 2rem 3rem;
-  padding-top: 6rem;
-}
-html body main #hero {
-  background: url("/images/black_panther.jpeg") center/cover no-repeat, rgba(20, 20, 20, 0.6980392157);
-  background-blend-mode: multiply;
-  background-attachment: fixed;
-}
-@media (min-width: 1400px) {
-  html body main section {
-    padding: 2rem 10rem;
-    padding-top: 7rem;
-  }
-}
-@media (max-width: 767px) {
-  html body main section {
-    padding: 1rem 1rem;
-    padding-top: 5rem;
-  }
-  html body main #hero {
-    background-image: url("/images/black_panther_vertical.jpg");
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
