@@ -23,9 +23,9 @@ const Header = () => {
           <Image
             src="/images/logo.webp"
             alt="ambient graphics"
-            width="100"
-            height="100"
-            className="w-10"
+            width="1000"
+            height="1000"
+            className="w-28"
           />
         </Link>
         <button
@@ -72,7 +72,7 @@ const Header = () => {
               alt="ambient graphics"
               width="100"
               height="100"
-              className="w-10"
+              className="w-32"
             />
           </Link>
         </div>

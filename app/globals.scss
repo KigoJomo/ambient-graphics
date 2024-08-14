@@ -75,6 +75,21 @@ img {
   object-position: center;
 }
 
+.image{
+  img{
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.split-word{
+  span{
+    &:hover{
+      color: var(--ag-brown);
+    }
+  }
+}
+
 html {
   height: 100dvh;
   width: 100vw;
