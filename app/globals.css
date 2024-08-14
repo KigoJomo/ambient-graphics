@@ -8,7 +8,7 @@
 }
 
 :root {
-  --ag-white: #ffffff;
+  --ag-white: #eeeeee;
   --ag-ash: #b9b9b9;
   --ag-black: #121212;
   --ag-brown: #c19a6b;
@@ -28,7 +28,8 @@ h1,
 h2,
 h3,
 a,
-button {
+button,
+a p {
   text-transform: capitalize;
   font-family: "Montserrat", sans-serif;
 }
@@ -79,6 +80,14 @@ img {
 
 .split-word span:hover {
   color: var(--ag-brown);
+}
+
+.round-button {
+  background: url("/images/round_button.webp") center/cover no-repeat;
+}
+
+.arrow-button {
+  background: url("/images/arrow.webp") center/50% no-repeat;
 }
 
 html {

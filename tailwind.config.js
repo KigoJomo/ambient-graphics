@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "ag-white": "#ffffff",
+        "ag-white": "#eeeeee",
         "ag-ash": "#b9b9b9",
         "ag-black": "#121212",
         "ag-brown": "#C19A6B",
