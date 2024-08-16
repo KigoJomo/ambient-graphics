@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-screen h-16 flex-shrink-0 absolute top-0 z-10">
+    <header className="w-screen h-16 flex-shrink-0 sticky -top-[2px] z-10 bg-ag-black">
       <div className="mobile-navigation w-full h-full px-6 flex md:hidden items-center justify-between relative">
         <Link href="/">
           <Image
@@ -29,11 +29,11 @@ const Header = () => {
           />
         </Link>
         <button
-          className="menu-button w-8 h-4 flex flex-col gap-1"
+          className="menu-button w-8 h-4 flex flex-col items-end gap-1"
           onClick={toggleMenu}
         >
           <span className="w-full h-0.5 bg-white"></span>
-          <span className="w-full h-0.5 bg-white"></span>
+          <span className="w-3/4 h-0.5 bg-white"></span>
         </button>
         <nav
           className={`w-screen absolute top-full flex flex-col items-center backdrop-blur-3xl py-4 px-6 ${

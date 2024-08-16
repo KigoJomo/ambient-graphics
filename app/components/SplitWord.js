@@ -4,7 +4,7 @@ const SplitWord = ({ word, rotate = false, column = false, className = "" }) => 
       {word.split("").map((char, index) => (
         <span
           key={index}
-          className={`transform ${rotate ? "rotate-90" : ""} ${column && char !== "i" ? "h-14" : "h-4 md:h-auto"} flex items-center justify-center`}
+          className={`transform ${rotate ? "rotate-90" : ""} ${column && char !== "i" ? "h-14" : "h-4 md:h-auto"} ${!column && 'h-auto'} flex items-center justify-center`}
         >
           {char}
         </span>
