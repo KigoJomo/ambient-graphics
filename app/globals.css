@@ -90,6 +90,10 @@ img {
   background: url("/images/arrow.webp") center/50% no-repeat;
 }
 
+.arrow-button-dark {
+  background: url("/images/arrow_black.webp") center/50% no-repeat;
+}
+
 html {
   height: 100dvh;
   width: 100vw;
