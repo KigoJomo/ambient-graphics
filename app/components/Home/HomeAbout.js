@@ -42,7 +42,7 @@ const HomeAbout = () => {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper variant="slideInRight">
             <SplitWord
-              className="w-full justify-end md:justify-start"
+              className="w-full justify-end pr-8 md:justify-start"
               word={'love'}
             />
           </ScrollAnimationWrapper>
@@ -60,12 +60,12 @@ const HomeAbout = () => {
         </div>
 
         <ScrollAnimationWrapper variant="slideInLeft" className={"flex-shrink-0"}>
-          <SplitWord word={'art'} className="" />
+          <SplitWord word={'art'} className="pl-8" />
         </ScrollAnimationWrapper>
 
         <div className="w-full md:w-1/3 md:mt-6 flex justify-between md:justify-end relative">
           <div className="md:absolute right-[125%] bottom-[30%]">
-            <RoundLink href={'/spotlight'} text={'spotlight'} />
+            <RoundLink href={'/atelier'} text={'atelier'} />
           </div>
 
           <div className="image-text w-3/5 md:w-full flex flex-col gap-4 md:flex-row-reverse relative">

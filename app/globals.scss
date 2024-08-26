@@ -4,6 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 .material-symbols-outlined {
@@ -29,13 +33,21 @@
 }
 
 h1,
+h1 span,
 h2,
 h3,
 a,
 button,
 a p {
   text-transform: capitalize;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: "Instrument Serif", serif; */
+  font-family: "Italiana", sans-serif;
+}
+
+a{
+  font-weight: 600;
+  letter-spacing: 0.1rem;
 }
 
 p {
@@ -54,7 +66,7 @@ h2 {
 
 h1 {
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 200;
   font-size: calc(var(--font-size) * 11);
   line-height: calc(var(--font-size) * 11);
 }
@@ -124,12 +136,12 @@ html {
         height: 100dvh;
         flex-shrink: 0;
         padding: 4rem 3rem;
-        // padding-top: 5rem;
+        /* // padding-top: 5rem; */
       }
       @media (max-width: 767px) {
         section {
           padding: 1rem 1.5rem;
-          // padding-top: 5rem;
+          /* // padding-top: 5rem; */
         }
       }
     }

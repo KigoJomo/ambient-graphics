@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const pages = ["home", "catalog", "shop", "spotlight"];
+const pages = ["home", "catalog", "shop", "atelier"];
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -80,8 +80,8 @@ const Header = () => {
           <Link href="/shop" className="uppercase text-ag-ash">
             shop
           </Link>
-          <Link href="/spotlight" className="uppercase text-ag-ash">
-            spotlight
+          <Link href="/atelier" className="uppercase text-ag-ash">
+            atelier
           </Link>
         </nav>
       </div>

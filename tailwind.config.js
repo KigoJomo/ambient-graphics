@@ -13,6 +13,9 @@ module.exports = {
         "ag-black": "#121212",
         "ag-brown": "#C19A6B",
       },
+      cursor: {
+        'pointer': 'url("/images/cursor-pointer.png"), pointer',
+      },
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
 const SplitWord = ({ word, rotate = false, column = false, className = "" }) => {
   return (
-    <h1 className={`split-word flex ${column ? "flex-col gap-0" : "gap-1"} ${className}`}>
+    <h1 className={`split-word flex ${column ? "flex-col gap-0" : "gap-0"} ${className}`}>
       {word.split("").map((char, index) => (
         <span
           key={index}
