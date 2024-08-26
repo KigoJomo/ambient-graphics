@@ -1,7 +1,9 @@
+import SplitWord from "../SplitWord";
+
 const CatalogIntro = () => {
     return (
         <section>
-            <h1>Catalog</h1>
+            <SplitWord word="Catalog" />
         </section>
     )
 }

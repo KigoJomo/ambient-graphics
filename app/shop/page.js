@@ -1,11 +1,11 @@
-import ShopIntro from "../components/shop/ShopIntro"
+import ShopIntro from '../components/shop/ShopIntro'
 
 const Shop = () => {
-    return (
-        <>
-            <ShopIntro />
-        </>
-    )
+  return (
+    <>
+      <ShopIntro />
+    </>
+  )
 }
 
-export default Shop;
+export default Shop
