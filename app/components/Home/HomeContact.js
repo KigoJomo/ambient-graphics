@@ -10,7 +10,7 @@ const HomeContact = () => {
         <h4 className='uppercase text-ag-ash'>ag / 2024</h4>
         <div className="w-full flex items-center justify-between">
           <h2 className='uppercase'>latest</h2>
-          <Link href='/contact font-lato'>see all</Link>
+          <Link href='/shop' className='font-lato text-ag-ash'>see all</Link>
         </div>
       </div>
     </section>
