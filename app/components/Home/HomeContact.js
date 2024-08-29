@@ -93,8 +93,8 @@ const HomeContact = () => {
           </div>
         </div>
 
-        <ScrollAnimationWrapper className="w-full md:w-1/3 mt-12 border-l border-gray-500 pl-2 h-32">
-          <TypewriterComponent text={"Immerse yourself in our world of artistry and inspiration through our newsletter. Follow us on social media for the latest exhibitions, exclusive events, and more. Experience the epitome of creativity with Ambient Graphics"} />
+        <ScrollAnimationWrapper duration={2} className="w-full md:w-1/3 mt-12 border-l border-gray-500 pl-2 h-32">
+          <TypewriterComponent text={"Immerse yourself in our world of artistry and inspiration through our newsletter. Follow us on social media for the latest exhibitions, exclusive events, and more. Experience the epitome of creativity with Ambient Graphics."} />
         </ScrollAnimationWrapper>
 
       </div>

@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
 
         <Image
-          className="hidden md:flex flex-col w-1/6 aspect-[3/4] border border-gray-500 rotate-12"
+          className="hidden md:flex flex-col w-1/6 aspect-[3/4] border border-gray-500 rotate-12 hover:-rotate-12 transition-all duration-1000"
           alt="ambient graphics"
           src="/images/mascot.webp"
           width={200}
