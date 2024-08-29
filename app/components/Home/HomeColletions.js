@@ -22,7 +22,7 @@ const HomeCollections = ()=>{
   
 
   return(
-    <section className="h-fit flex flex-col gap-6">
+    <section className="h-fit flex flex-col gap-6 pb-12">
       <h2 className="uppercase">collection</h2>
       <CollectionOverview collections={collections} />
     </section>

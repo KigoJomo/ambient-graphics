@@ -108,6 +108,10 @@ img {
   background: url("/images/arrow_black.webp") center/50% no-repeat;
 }
 
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   height: 100dvh;
   width: 100vw;
