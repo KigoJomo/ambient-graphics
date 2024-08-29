@@ -38,7 +38,7 @@ const HomeIntro = () => {
         </ScrollAnimationWrapper>
       </div>
       <div className="w-full bottom flex flex-col md:flex-row items-end">
-        <div className="md:h-28 w-full md:w-2/5">
+        <div className="h-24 md:h-28 w-full md:w-2/5">
           <TypewriterComponent text={"Discover stunning, original pieces by our team. Explore the collection, purchase unique artwork, or commission a custom piece."} />
         </div>
         <ScrollAnimationWrapper duration={2} className={"md:ml-24 md:mt-0"}>

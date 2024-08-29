@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer className="w-full flex flex-col pt-8 md:pt-0">
       
-      <div className="top w-full px-6 md:px-12 py-8 flex items-end justify-between md:gap-4">
+      <div className="top w-full px-6 md:px-12 py-8 flex items-start md:items-end justify-between md:gap-4">
         <div className="hidden md:flex flex-col w-1/2 h-32">
           <h1 className="text-xl">
             ambient
@@ -24,20 +24,20 @@ const Footer = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col justify-between w-1/2 md:w-1/6 h-32 border-l border-gray-500 pl-2">
+        <div className="flex flex-col gap-4 justify-between w-1/2 md:w-1/6 md:h-32 border-l border-gray-500 pl-2">
           <p className="capitalize text-sm">
             studio <br />
             contact
           </p>
           <Link
-            href='<a href="mailto:ambientgraphics@gmail.com'
+            href='mailto:ambientgraphics@gmail.com'
             className="text-sm lowercase hover:text-ag-brown"
           >
             @ambientgraphics
           </Link>
         </div>
 
-        <div className="flex flex-col justify-between w-1/3 md:w-1/6 h-32 border-l border-gray-500 pl-2">
+        <div className="flex flex-col justify-between w-2/5 md:w-1/6 h-32 border-l border-gray-500 pl-2">
           {socialHandles.map((handle, index) => (
             <Link
               key={index}
@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
 
         <Image
-          className="hidden md:flex flex-col w-1/6 aspect-[3/4] border border-gray-500"
+          className="hidden md:flex flex-col w-1/6 aspect-[3/4] border border-gray-500 rotate-12"
           alt="ambient graphics"
           src="/images/mascot.webp"
           width={200}
