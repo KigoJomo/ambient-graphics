@@ -38,26 +38,58 @@ const HomeContact = () => {
               className="flex-shrink-0 flex flex-col items-center gap-2"
               style={{ width: `${calculatedWidth}px` }} // Apply calculated width
             >
-              <Image
-                src={piece.image}
-                alt={piece.name}
-                className="w-full"
-                width={150}
-                height={150}
-              />
+              <div className="w-full overflow-hidden">
+                <Image
+                  src={piece.image}
+                  alt={piece.name}
+                  className="w-full hover:scale-105"
+                  width={150}
+                  height={150}
+                />
+              </div>
               <p className="text-xs text-center">{piece.name}</p>
             </div>
           )
         })}
       </div>
 
-      <div className="pt-8 w-full flex flex-col">
-        <div className="action">
-          <p className='uppercase text-xs text-ag-ash'>get in touch</p>
-          {/* icon */}
-        </div>
-      </div>
+      <div className="w-full flex flex-col md:flex-row gap-4 pt-8 md:pt-20">
+        <div className="w-full md:w-2/3 flex flex-col">
+          <div className="action flex items-start gap-2">
+            <p className="uppercase text-xs text-ag-ash">get in touch</p>
+            <p className="font text-2xl leading-[10px]">&#x2198;</p>
+          </div>
+          
+          <div className="h relative">
+            <h1 className="uppercase tracking-tighter relative z-[2]">stay</h1>
+            <Image
+              src="/images/panther.webp"
+              alt="arrow"
+              width={125}
+              height={125}
+              className="absolute top-0 left-32 z-[3] rotate-12 md:hidden"
+            />
+            
+            <Image
+              src="/images/panther.webp"
+              alt="arrow"
+              width={175}
+              height={175}
+              className="absolute top-12 left-72 z-[3] rotate-12 hidden md:block"
+            />
 
+            <h1 className="uppercase tracking-tighter w-full md:w-fit md:pl-32 text-right relative z-[4]">
+              artistic
+            </h1>
+          </div>
+        </div>
+
+        <div className="w-full md:w-1/3 h-fit mt-12 border-l border-gray-500 pl-2">
+          <p>
+          Immerse yourself in our world of artistry and inspiration through our newsletter. Follow us on social media for the latest exhibitions, exclusive events, and more. Experience the epitome of creativity with Ambient Graphics</p>
+        </div>
+
+      </div>
     </section>
   )
 }
