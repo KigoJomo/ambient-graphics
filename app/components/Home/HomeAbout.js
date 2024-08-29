@@ -82,7 +82,7 @@ const HomeAbout = () => {
               text={
                 'Join us in celebrating timeless artistry and unmatched creativity.'
               }
-              className="text-right md:absolute right-[105%] bottom-0 md:w-[25vw]"
+              className="text-right md:absolute right-[105%] bottom-0 md:w-[25vw] h-16"
             />
           </div>
         </div>

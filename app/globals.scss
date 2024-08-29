@@ -32,6 +32,10 @@
   transition: all 0.3s ease;
 }
 
+.font-lato {
+  font-family: 'Lato', sans-serif;
+}
+
 h1,
 h1 span,
 h2,
@@ -42,10 +46,10 @@ a p {
   text-transform: capitalize;
   /* font-family: 'Montserrat', sans-serif; */
   /* font-family: "Instrument Serif", serif; */
-  font-family: "Italiana", sans-serif;
+  font-family: 'Italiana', sans-serif;
 }
 
-a{
+a {
   font-weight: 600;
   letter-spacing: 0.1rem;
 }
@@ -80,7 +84,7 @@ h1 {
 
 a,
 button {
-  cursor: url('/images/cursor-pointer.png'), auto;
+  cursor: url('/images/cursor-pointer.webp'), auto;
 }
 
 img {
@@ -119,18 +123,20 @@ html {
   height: 100dvh;
   width: 100vw;
   overflow: hidden;
+
   body {
-    height: 100dvh;
+    height: 100%;
     width: 100vw;
     overflow-x: hidden;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;
     }
-    cursor: url('/images/cursor-default.png'), auto;
+    cursor: url('/images/cursor-default.webp'), auto;
 
     main {
       width: 100vw;
+
       section {
         width: 100vw;
         height: 100dvh;

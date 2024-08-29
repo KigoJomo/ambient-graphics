@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./globals.css";
 
@@ -13,7 +14,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    images: "/images/open-graph.png",
+    images: "/images/open-graph.webp",
   },
 };
 
@@ -22,7 +23,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="flex flex-col relative bg-ag-black">
         <Header />
-        <main>{children}</main>
+        <main className=''>{children}</main>
+        <Footer />
       </body>
     </html>
   );

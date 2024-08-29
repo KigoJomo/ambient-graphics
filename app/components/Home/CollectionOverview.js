@@ -15,7 +15,8 @@ const CollectionOverview = ({ collections }) => {
   useEffect(() => {
     if (openIndex !== null) {
       const details = detailsRefs.current[openIndex];
-      details.style.height = `${details.scrollHeight}px`;
+      // details.style.height = `${details.scrollHeight}px`;
+      details.style.height = `fit-content`;
       details.style.opacity = 1;
     }
   }, [openIndex]);
@@ -40,7 +41,8 @@ const CollectionOverview = ({ collections }) => {
             className={`details transition-all duration-500 ease-in-out overflow-hidden flex flex-col gap-4 px-4 py-0 md:pl-32 md:pr-8 md:py-0 bg-ag-white`}
             style={{
               padding: openIndex === index ? '1rem 1rem' : '0 1rem',
-              height: openIndex === index ? `${detailsRefs.current[index]?.scrollHeight}px` : '0',
+              // height: openIndex === index ? `${detailsRefs.current[index]?.scrollHeight}px` : '0',
+              height: openIndex === index ? `fit-content` : '0',
               opacity: openIndex === index ? 1 : 0,
             }}
           >
