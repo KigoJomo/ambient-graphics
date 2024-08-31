@@ -43,6 +43,8 @@ export default function CategoryPage() {
             src={item.image}
             alt={item.title}
             className="mb-4 w-full h-auto object-cover rounded"
+            width={300}
+            height={200}
           />
           <p className="text-lg font-semibold mb-4">{item.price}</p>
           <button
