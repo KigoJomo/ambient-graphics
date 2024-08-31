@@ -17,7 +17,7 @@ const ScrollAnimationWrapper = ({ children, variant = 'fadeIn', className, durat
       visible: { opacity: 1, x: 0, transition: { duration } },
     },
     slideInBottom: {
-      hidden: { opacity: 0, y: 200 },
+      hidden: { opacity: 0, y: 100 },
       visible: { opacity: 1, y: 0, transition: { duration } },
     },
     slideInTop: {

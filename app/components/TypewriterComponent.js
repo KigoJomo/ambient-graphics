@@ -15,7 +15,7 @@ const TypewriterComponent = ({ textLevel = "p", text, className = " " }) => {
         if (entry.isIntersecting) {
           const typewriter = new Typewriter(typewriterRef.current, {
             loop: false,
-            delay: 60,
+            delay: 25,
           });
           typewriter.pauseFor(1500).typeString(stringText).pauseFor(1000).start();
           // Stop observing after starting the animation
