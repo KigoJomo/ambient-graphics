@@ -13,17 +13,16 @@ const collections = [
   },
   {
     title: 'Pencil Portraits',
-    description: 'Discover intricate pencil sketches.',
-    coverImage: ['/images/portraits/portrait.webp'],
-    slug: 'pencil-sketches',
+    description: 'Discover intricate pencil depictions of prestine moments.',
+    coverImage: ['/images/portraits/portrait6.webp'],
+    slug: 'portraits',
   },
   {
-    title: 'Digital Art',
+    title: 'Murals',
     description: 'Modern and abstract digital art pieces.',
-    coverImage: ['/images/digital-art/digital-art1.webp'],
-    slug: 'digital-art',
+    coverImage: ['/images/murals/hero.webp'],
+    slug: 'murals',
   },
-  // Add more collections here
 ]
 
 export default function CatalogPage() {
@@ -36,7 +35,7 @@ export default function CatalogPage() {
           className="collection w-full bg-transparent flex flex-col md:flex-row gap-4 md:py-8"
         >
 
-          <ScrollAnimationWrapper className={`images w-full md:w-3/5 aspect-video md:aspect-[21/9] md:order-2 overflow-hidden flex`}>
+          <ScrollAnimationWrapper className={`images w-full md:w-3/5 aspect-[4/3] md:aspect-[21/9] md:order-2 overflow-hidden flex`}>
             <Image
               src={collection.coverImage[0]}
               alt={collection.title}
