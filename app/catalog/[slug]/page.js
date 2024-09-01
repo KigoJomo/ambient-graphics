@@ -1,7 +1,9 @@
-import { useRouter } from 'next/router';
+// app/catalog/[slug]/page.js
+"use client";
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import Image from 'next/image'; // Import the 'Image' component from the appropriate package
-import QuoteModal from '../../components/QuoteModal';
+import Image from 'next/image';
+import QuoteModal from '@/app/components/QuoteModal';
 
 const items = {
   'paintings': [
@@ -21,8 +23,9 @@ const items = {
 };
 
 export default function CategoryPage() {
-  const router = useRouter();
-  const { slug } = router.query;
+  const pathname = usePathname();
+  const slug = pathname.split('/').pop();
+  
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
