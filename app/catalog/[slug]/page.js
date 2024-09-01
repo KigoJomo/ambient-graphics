@@ -8,20 +8,32 @@ import SplitWord from '@/app/components/SplitWord';
 
 const items = {
   'paintings': [
-    { title: 'Sunset', description: 'A beautiful sunset.', image: '/images/paintings/sunset.jpg', price: '$200' },
-    { title: 'Ocean Waves', description: 'Calm ocean waves.', image: '/images/paintings/ocean.jpg', price: '$250' },
-    // More paintings here
+    { title: 'Sunset', description: 'A beautiful sunset.', image: '/images/paintings/painting1.webp', price: 'KES 20,000' },
+    { title: 'Ocean Waves', description: 'Calm ocean waves.', image: '/images/paintings/painting2.webp', price: 'KES 25,000' },
+    { title: 'Mountain Range', description: 'A majestic mountain range.', image: '/images/paintings/painting3.webp', price: 'KES 30,000' },
+    { title: 'Forest Path', description: 'A serene forest path.', image: '/images/paintings/painting4.webp', price: 'KES 22,000' },
+    { title: 'City Skyline', description: 'A vibrant city skyline.', image: '/images/paintings/painting5.webp', price: 'KES 28,000' },
+    { title: 'Desert Dunes', description: 'Golden desert dunes under the sun.', image: '/images/paintings/painting6.webp', price: 'KES 24,000' },
   ],
   'pencil-sketches': [
-    { title: 'Portrait', description: 'A detailed portrait.', image: '/images/sketches/portrait.jpg', price: '$150' },
-    // More sketches here
+    { title: 'Portrait', description: 'A detailed portrait.', image: '/images/sketches/sketch1.webp', price: 'KES 15,000' },
+    { title: 'Wildlife', description: 'A sketch of wildlife in its natural habitat.', image: '/images/sketches/sketch2.webp', price: 'KES 18,000' },
+    { title: 'Old Man', description: 'A sketch of an old man with deep wrinkles.', image: '/images/sketches/sketch3.webp', price: 'KES 12,000' },
+    { title: 'Mother and Child', description: 'A tender moment between mother and child.', image: '/images/sketches/sketch4.webp', price: 'KES 16,000' },
+    { title: 'Tree', description: 'A detailed sketch of a large tree.', image: '/images/sketches/sketch5.webp', price: 'KES 14,000' },
+    { title: 'Architectural Drawing', description: 'A sketch of a building with intricate details.', image: '/images/sketches/sketch6.webp', price: 'KES 20,000' },
   ],
   'digital-art': [
-    { title: 'Abstract Lights', description: 'Colorful digital art.', image: '/images/digital-art/abstract.jpg', price: '$300' },
-    // More digital art here
+    { title: 'Abstract Lights', description: 'Colorful digital art.', image: '/images/digital-art/digital1.webp', price: 'KES 30,000' },
+    { title: 'Cyber City', description: 'A futuristic cyber city.', image: '/images/digital-art/digital2.webp', price: 'KES 35,000' },
+    { title: 'Space Nebula', description: 'A stunning nebula in deep space.', image: '/images/digital-art/digital3.webp', price: 'KES 32,000' },
+    { title: 'Fractal Design', description: 'A complex fractal design.', image: '/images/digital-art/digital4.webp', price: 'KES 28,000' },
+    { title: 'Fantasy Landscape', description: 'A mystical landscape in a fantasy world.', image: '/images/digital-art/digital5.webp', price: 'KES 33,000' },
+    { title: 'Neon Lights', description: 'Bright neon lights in the night.', image: '/images/digital-art/digital6.webp', price: 'KES 29,000' },
   ],
-  // Add more categories here
+  // You can add more categories in the same format here
 };
+
 
 export default function CategoryPage() {
   const pathname = usePathname();
@@ -41,7 +53,7 @@ export default function CategoryPage() {
     <section className="category-page h-fit flex flex-col">
 
       <div className="w-full flex justify-center">
-        <SplitWord word={slug} className='text-4xl md:text-[11.5rem]' />
+        <SplitWord word={slug} className='text-4xl md:text-[11.5rem] md:leading-[11.5rem]' />
       </div>
 
       {categoryItems.map((item, index) => (
