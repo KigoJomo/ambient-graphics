@@ -1,0 +1,76 @@
+{
+  "collections": [
+    {
+      "title": "Paintings",
+      "description": "Explore our collection of beautiful paintings.",
+      "coverImage": "/images/paintings/painting1.webp",
+      "slug": "paintings",
+      "items": [
+        {
+          "title": "Soul",
+          "description": "An expression of the soul.",
+          "image": "/images/paintings/painting1.webp",
+          "price": "KES 20,000"
+        }
+      ]
+    },
+    {
+      "title": "Pencil Portraits",
+      "description": "Discover intricate pencil depictions of pristine moments.",
+      "coverImage": "/images/portraits/portrait6.webp",
+      "slug": "portraits",
+      "items": [
+        {
+          "title": "Shared moments",
+          "description": "A captivating portrayal of shared experiences.",
+          "image": "/images/portraits/portrait1.webp",
+          "price": "KES 15,000"
+        },
+        {
+          "title": "Introspection",
+          "description": "A thought-provoking depiction of self-reflection.",
+          "image": "/images/portraits/portrait2.webp",
+          "price": "KES 18,000"
+        },
+        {
+          "title": "Self-Admiration",
+          "description": "An introspective sketch of wisdom and self-acceptance.",
+          "image": "/images/portraits/portrait3.webp",
+          "price": "KES 12,000"
+        },
+        {
+          "title": "Audacity",
+          "description": "A tender and bold portrayal of love and courage.",
+          "image": "/images/portraits/portrait4.webp",
+          "price": "KES 16,000"
+        },
+        {
+          "title": "Man's best friend",
+          "description": "A detailed sketch capturing the essence of companionship.",
+          "image": "/images/portraits/portrait5.webp",
+          "price": "KES 14,000"
+        },
+        {
+          "title": "Smile...",
+          "description": "An intricate sketch of architectural beauty and joy.",
+          "image": "/images/portraits/portrait6.webp",
+          "price": "KES 20,000"
+        }
+      ]
+    },
+    {
+      "title": "Murals",
+      "description": "Modern and abstract digital art pieces.",
+      "coverImage": "/images/murals/hero.webp",
+      "slug": "murals",
+      "items": [
+        {
+          "title": "Abstract Lights",
+          "description": "Colorful digital art.",
+          "image": "/images/murals/mural1.webp",
+          "price": "KES 30,000"
+        }
+      ]
+    }
+  ]
+}

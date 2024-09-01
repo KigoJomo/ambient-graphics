@@ -34,6 +34,7 @@ h1,
 h1 span,
 h2,
 h3,
+h3 strong,
 a,
 button,
 a p {
@@ -125,6 +126,19 @@ img {
   top: 0;
   left: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+textarea,
+input {
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--ag-ash);
+}
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: var(--ag-white);
 }
 
 html {

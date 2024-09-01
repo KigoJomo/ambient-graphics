@@ -1,8 +1,13 @@
-"use client";
-import { motion } from "framer-motion";
-import React from "react";
+'use client'
+import { motion } from 'framer-motion'
+import React from 'react'
 
-const ScrollAnimationWrapper = ({ children, variant = 'fadeIn', className, duration = 1 }) => {
+const ScrollAnimationWrapper = ({
+  children,
+  variant = 'fadeIn',
+  className,
+  duration = 1,
+}) => {
   const variants = {
     fadeIn: {
       hidden: { opacity: 0 },
@@ -24,11 +29,15 @@ const ScrollAnimationWrapper = ({ children, variant = 'fadeIn', className, durat
       hidden: { opacity: 0, y: -200 },
       visible: { opacity: 1, y: 0, transition: { duration } },
     },
-    rotate:{
+    rotate: {
       hidden: { opacity: 0, rotate: -7.5 },
       visible: { opacity: 1, rotate: 15, transition: { duration } },
     },
-  };
+    scale: {
+      hidden: { opacity: 1, scale: 0.75 },
+      visible: { opacity: 1, scale: 1, transition: { duration } },
+    },
+  }
 
   return (
     <motion.div
@@ -40,7 +49,7 @@ const ScrollAnimationWrapper = ({ children, variant = 'fadeIn', className, durat
     >
       {children}
     </motion.div>
-  );
-};
+  )
+}
 
-export default ScrollAnimationWrapper;
+export default ScrollAnimationWrapper
