@@ -15,7 +15,7 @@ const HomeCollections = ()=>{
       tag: "Art Alchemy",
       description:
         "Explore the Timeless Portraits collection, capturing human essence through meticulously rendered pencil portraits. Each piece celebrates individuality and emotion, inviting you to reflect on the beauty and depth of the human form in a timeless medium.",
-      image: "/images/portraits.webp",
+      image: "/images/portraits/portrait12.webp",
       link: "/catalog",
     },
   ];
