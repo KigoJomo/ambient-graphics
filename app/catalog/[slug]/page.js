@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Image from 'next/image';
 import QuoteModal from '@/app/components/QuoteModal';
+import SplitWord from '@/app/components/SplitWord';
 
 const items = {
   'paintings': [
@@ -25,7 +26,7 @@ const items = {
 export default function CategoryPage() {
   const pathname = usePathname();
   const slug = pathname.split('/').pop();
-  
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -37,9 +38,14 @@ export default function CategoryPage() {
   };
 
   return (
-    <div className="category-page grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+    <section className="category-page h-fit flex flex-col">
+
+      <div className="w-full flex justify-center">
+        <SplitWord word={slug} className='text-4xl md:text-[11.5rem]' />
+      </div>
+
       {categoryItems.map((item, index) => (
-        <div key={index} className="item p-4 bg-white rounded shadow">
+        <div key={index} className="item p-4 border">
           <h3 className="text-xl font-bold mb-2">{item.title}</h3>
           <p className="text-gray-700 mb-4">{item.description}</p>
           <Image
@@ -64,6 +70,6 @@ export default function CategoryPage() {
           onClose={() => setModalOpen(false)}
         />
       )}
-    </div>
+    </section>
   );
 }
