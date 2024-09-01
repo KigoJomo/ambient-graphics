@@ -12,9 +12,9 @@ const collections = [
     slug: 'paintings',
   },
   {
-    title: 'Pencil Sketches',
+    title: 'Pencil Portraits',
     description: 'Discover intricate pencil sketches.',
-    coverImage: ['/images/sketches/sketch1.webp'],
+    coverImage: ['/images/portraits/portrait.webp'],
     slug: 'pencil-sketches',
   },
   {

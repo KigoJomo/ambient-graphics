@@ -5,11 +5,11 @@ import ScrollAnimationWrapper from '../ScrollAnimationWrapper'
 import TypewriterComponent from '../TypewriterComponent'
 
 const recentPieces = [
-  { name: 'Echoes of Infinity', image: '/images/art/piece1.webp' },
-  { name: 'Luminescent Mirage', image: '/images/art/piece5.webp' },
-  { name: 'Ephemeral Dreams', image: '/images/art/piece3.webp' },
-  { name: 'Serenade of Shadows', image: '/images/art/piece4.webp' },
-  { name: 'Whispers of the Void', image: '/images/art/piece2.webp' },
+  { name: 'Gold Triggah', image: '/images/posters/poster3.webp' },
+  { name: 'Unwavering Belief', image: '/images/murals/mural1.webp' },
+  { name: 'Beyond black and white', image: '/images/portraits/portrait4.webp' },
+  { name: 'Aphropatra', image: '/images/posters/poster5.webp' },
+  { name: 'Man\'s best friend', image: '/images/portraits/portrait5.webp' },
 ]
 
 const HomeContact = () => {
@@ -28,7 +28,7 @@ const HomeContact = () => {
 
       <div className="w-full flex gap-6 md:gap-12 overflow-y-hidden overflow-x-scroll scrollbar-hidden">
         {recentPieces.map((piece, index) => {
-          const baseWidth = 100 // Base width of 100px
+          const baseWidth = 150 // Base width of 100px
           const factors = [1, 1.5, 2, 2.5] // Multiplication factors
           const randomFactor =
             factors[Math.floor(Math.random() * factors.length)] // Randomly select a factor

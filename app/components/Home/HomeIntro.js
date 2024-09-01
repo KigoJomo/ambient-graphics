@@ -33,13 +33,13 @@ const HomeIntro = () => {
             height={2000}
             alt="ambient grpahics"
             className=""
-            src="/images/vector_poster.webp"
+            src="/images/murals/hero.webp"
           />
         </ScrollAnimationWrapper>
       </div>
       <div className="w-full bottom flex flex-col md:flex-row items-end">
         <div className="h-24 md:h-28 w-full md:w-2/5">
-          <TypewriterComponent text={"Discover stunning, original pieces by our team. Explore the collection, purchase unique artwork, or commission a custom piece."} />
+          <TypewriterComponent text={"Discover stunning, original pieces by ambient graphics. Explore the collection, purchase unique artwork, or commission a custom piece."} />
         </div>
         <ScrollAnimationWrapper duration={2} className={"md:ml-24 md:mt-0"}>
           <RoundLink href="/catalog" text="catalog" />

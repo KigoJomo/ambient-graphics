@@ -3,11 +3,11 @@ import CollectionOverview from "./CollectionOverview";
 const HomeCollections = ()=>{
   const collections = [
     {
-      title: "Handcrafted Treasures",
-      tag: "Inspiration Overload",
+      title: "Sleek Posters",
+      tag: "Elegant Visuals",
       description:
-        "Discover the artistry of handmade jewelry in the Handcrafted Treasures collection. Vibrant designs, from elegant beaded bracelets to bold necklaces, embody individuality and personal expression. Elevate your style with pieces that resonate with your journey and taste.",
-      image: "/images/handcrafted.webp",
+        "Discover the artistry of sleek posters in the Elegant Visuals collection. These posters feature stunning designs that will enhance any space. From minimalist prints to vibrant illustrations, each poster is a work of art that will captivate your imagination.",
+      image: "/images/posters/poster2.webp",
       link: "/catalog",
     },
     {

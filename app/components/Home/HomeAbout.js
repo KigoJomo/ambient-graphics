@@ -25,7 +25,7 @@ const HomeAbout = () => {
         >
           <Image
             alt="ambient graphics artists"
-            src="/images/artists.webp"
+            src="/images/portraits/portrait3.webp"
             height={750}
             width={750}
           />
@@ -34,9 +34,9 @@ const HomeAbout = () => {
         <div className="w-full flex flex-col md:justify-between gap-8 md:h-full">
           <ScrollAnimationWrapper duration={3} className={"md:w-2/5"}>
             <p className="">
-              Explore a world of captivating art. Uncover the talented artists
-              behind our diverse collection of paintings, drawings, and more.
-              Learn about our dedication to showcasing unique and inspiring visual
+              Explore a world of captivating art. Uncover the talented artist
+              behind the diverse collection of paintings, drawings, and more.
+              Learn about the dedication to showcasing unique and inspiring visual
               expressions.
             </p>
           </ScrollAnimationWrapper>
@@ -74,7 +74,7 @@ const HomeAbout = () => {
                 alt="ambient graphics artists"
                 width={750}
                 height={750}
-                src="/images/artists2.webp"
+                src="/images/posters/poster4.webp"
               />
             </ScrollAnimationWrapper>
 
