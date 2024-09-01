@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col relative bg-ag-black">
-        <Loader />
+        {/* <Loader /> */}
         <Header />
         <main className="">{children}</main>
         <Footer />
