@@ -8,6 +8,7 @@ import QuoteModal from '@/app/components/QuoteModal'
 import SplitWord from '@/app/components/SplitWord'
 import CustomButton from '@/app/components/CustomButton'
 import ScrollAnimationWrapper from '@/app/components/ScrollAnimationWrapper'
+import Loader from '@/app/components/Loader'
 
 export default function CategoryPage() {
   const pathname = usePathname()
@@ -61,7 +62,7 @@ export default function CategoryPage() {
                 key={index}
                 className="item p-4 border border-gray-800 flex-shrink-0 flex flex-col gap-2 w-full md:w-1/4"
               >
-                <h3 className="font-bold tracking-wider">{item.title}</h3>
+                <h3 className="font-bold tracking-wider capitalize">{item.title}</h3>
 
                 <div className="w-full aspect-[1/1] overflow-hidden">
                   <Image
@@ -88,9 +89,9 @@ export default function CategoryPage() {
           </div>
         </>
       ) : (
-        <>
-          <div className="w-full flex justify-center">Loading...</div>
-        </>
+        <div className='w-full h-[50vh] flex items-center'>
+          <Loader />
+        </div>
       )}
 
       {isModalOpen && (

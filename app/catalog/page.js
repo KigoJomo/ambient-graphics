@@ -4,6 +4,7 @@ import Image from 'next/image'
 import SplitWord from '../components/SplitWord'
 import RoundLink from '../components/RoundLink'
 import ScrollAnimationWrapper from '../components/ScrollAnimationWrapper'
+import Loader from '../components/Loader'
 
 const CatalogPage = () => {
   const [data, setData] = useState(null)
@@ -70,9 +71,9 @@ const CatalogPage = () => {
           ))}
         </>
       ) : (
-        <>
-          <div className="w-full flex justify-center">Loading...</div>
-        </>
+        <div className='w-full h-[50vh] flex items-center'>
+          <Loader />
+        </div>
       )}
     </section>
   )

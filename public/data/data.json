@@ -52,7 +52,7 @@
         },
         {
           "title": "Smile...",
-          "description": "An intricate sketch of architectural beauty and joy.",
+          "description": "A smile worth a thousand words.",
           "image": "/images/portraits/portrait6.webp",
           "price": "KES 20,000"
         }
@@ -69,6 +69,44 @@
           "description": "Colorful digital art.",
           "image": "/images/murals/mural1.webp",
           "price": "KES 30,000"
+        }
+      ]
+    },
+    {
+      "title": "Posters",
+      "description": "From minimalist prints to vibrant illustrations, each poster is a work of art that will captivate your imagination.",
+      "coverImage": "/images/posters/poster5.webp",
+      "slug": "posters",
+      "items": [
+        {
+          "title": "Aphozapatra",
+          "description": "A captivating performance by Aphozapatra.",
+          "image": "/images/posters/poster5.webp",
+          "price": "KES 1,000"
+        },
+        {
+          "title": "Oso",
+          "description": "Experience Oso live on stage.",
+          "image": "/images/posters/poster2.webp",
+          "price": "KES 1,000"
+        },
+        {
+          "title": "Gold Triggah",
+          "description": "Gold Triggah's electrifying performance.",
+          "image": "/images/posters/poster3.webp",
+          "price": "KES 1,000"
+        },
+        {
+          "title": "Lece The Goat",
+          "description": "Lece The Goat's powerful stage presence.",
+          "image": "/images/posters/poster4.webp",
+          "price": "KES 1,000"
+        },
+        {
+          "title": "Rhythm N. Bangers",
+          "description": "The best of RNB all in one night.",
+          "image": "/images/posters/poster1.webp",
+          "price": "KES 1,000"
         }
       ]
     }

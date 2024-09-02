@@ -8,7 +8,7 @@ const HomeCollections = ()=>{
       description:
         "Discover the artistry of sleek posters in the Elegant Visuals collection. These posters feature stunning designs that will enhance any space. From minimalist prints to vibrant illustrations, each poster is a work of art that will captivate your imagination.",
       image: "/images/posters/poster2.webp",
-      link: "/catalog",
+      link: "/catalog/posters",
     },
     {
       title: "Timeless Portraits",
@@ -16,7 +16,7 @@ const HomeCollections = ()=>{
       description:
         "Explore the Timeless Portraits collection, capturing human essence through meticulously rendered pencil portraits. Each piece celebrates individuality and emotion, inviting you to reflect on the beauty and depth of the human form in a timeless medium.",
       image: "/images/portraits/portrait12.webp",
-      link: "/catalog",
+      link: "/catalog/portraits",
     },
   ];
   

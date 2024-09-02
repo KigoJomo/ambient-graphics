@@ -1,6 +1,5 @@
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Loader from './components/Loader'
 import './globals.css'
 
 export const metadata = {
@@ -23,7 +22,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col relative bg-ag-black">
-        {/* <Loader /> */}
         <Header />
         <main className="">{children}</main>
         <Footer />

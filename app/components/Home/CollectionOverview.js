@@ -81,7 +81,7 @@ const CollectionOverview = ({ collections }) => {
                   href={collection.link}
                   text={'Discover'}
                   dark={true}
-                  className="hidden md:flex"
+                  className="hidden md:flex flex-shrink-0"
                 />
               </div>
             </div>
