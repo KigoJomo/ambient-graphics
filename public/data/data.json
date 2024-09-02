@@ -83,9 +83,27 @@
       "slug": "murals",
       "items": [
         {
-          "title": "Abstract Lights",
-          "description": "Colorful digital art.",
+          "title": "Belief",
+          "description": "An uplifting piece displaying the words \"Believe\" prominently, designed to inspire confidence and self-belief.",
           "image": "/images/murals/mural1.webp",
+          "price": "KES 32,000"
+        },
+        {
+          "title": "Modern Tapestry",
+          "description": "A mural of a woman in sunglasses adorns a brick wall, showcasing vibrant colors and artistic expression.",
+          "image": "/images/murals/mural2.webp",
+          "price": "KES 28,000"
+        },
+        {
+          "title": "Urban Oasis",
+          "description": "An artistic depiction of a woman with an afro, set against a dynamic city skyline, symbolizing strength and urban culture.",
+          "image": "/images/murals/mural3.webp",
+          "price": "KES 35,000"
+        },
+        {
+          "title": "Fusion",
+          "description": "An artistic mural of a woman with black hair, complemented by a city skyline, representing the fusion of nature and urban life",
+          "image": "/images/murals/mural4.webp",
           "price": "KES 30,000"
         }
       ]

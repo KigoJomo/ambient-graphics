@@ -9,6 +9,8 @@ import SplitWord from '@/app/components/SplitWord'
 import CustomButton from '@/app/components/CustomButton'
 import ScrollAnimationWrapper from '@/app/components/ScrollAnimationWrapper'
 import Loader from '@/app/components/Loader'
+import ImageOverlayModal from '@/app/components/ImageOverlayModal'
+import RoundLink from '@/app/components/RoundLink'
 
 export default function CategoryPage() {
   const pathname = usePathname()
@@ -16,6 +18,8 @@ export default function CategoryPage() {
 
   const [isModalOpen, setModalOpen] = useState(false)
   const [selectedItem, setSelectedItem] = useState(null)
+  const [isOverlayOpen, setOverlayOpen] = useState(false)
+  const [overlayImage, setOverlayImage] = useState(null)
   const [data, setData] = useState(null)
   const [categoryItems, setCategoryItems] = useState([])
 
@@ -45,6 +49,11 @@ export default function CategoryPage() {
     setModalOpen(true)
   }
 
+  const handleImageClick = (imageSrc, imageAlt) => {
+    setOverlayImage({ src: imageSrc, alt: imageAlt })
+    setOverlayOpen(true)
+  }
+
   return (
     <section className="category-page h-fit flex flex-col gap-8">
       <div className="w-full flex justify-center">
@@ -58,20 +67,38 @@ export default function CategoryPage() {
         <>
           <div className="w-full flex flex-col md:flex-row md:flex-wrap md:justify-around md:gap-12 gap-6 md:border-t border-ag-ash md:pt-8">
             {categoryItems.map((item, index) => (
-              <ScrollAnimationWrapper variant='slideInBottom'
+              <ScrollAnimationWrapper
+                variant="slideInBottom"
                 key={index}
                 className="item p-4 border border-gray-800 flex-shrink-0 flex flex-col gap-2 w-full md:w-1/4"
               >
-                <h3 className="font-bold tracking-wider capitalize">{item.title}</h3>
+                <h3 className="font-bold tracking-wider capitalize">
+                  {item.title}
+                </h3>
 
-                <div className="w-full aspect-[1/1] overflow-hidden">
+                <div className="w-full aspect-[1/1] overflow-hidden cursor-pointer relative">
                   <Image
                     src={item.image}
                     alt={item.title}
                     className="w-full aspect-[1/1] hover:scale-110"
                     width={300}
                     height={200}
+                    onClick={() => handleImageClick(item.image, item.title)}
                   />
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-gray-950 via-transparent to-transparent flex items-end justify-end p-2 md:p-0 pointer-events-none">
+                    <div className="pointer-events-none h-12 w-12 md:w-24 md:h-24">
+                      <RoundLink
+                        className="pointer-events-none w-full h-full scale-75 md:w-full md:h-24 md:scale-[0.35] md:ml-4 md:mt-4"
+                        href={'/'}
+                      />
+                    </div>
+                  </div>
+
+                  {/* <div className="w-full h-full absolute top-0 left-0 pointer-events-none p-4 flex items-end justify-end fade-image">
+                    <div className="pointer-events-none aspect-square w-12">
+                      <RoundLink className="pointer-events-none w-full h-full" href={'/'} />
+                    </div>
+                  </div> */}
                 </div>
 
                 <p className="text-ag-ash">{item.description}</p>
@@ -89,13 +116,21 @@ export default function CategoryPage() {
           </div>
         </>
       ) : (
-        <div className='w-full h-[50vh] flex items-center'>
+        <div className="w-full h-[50vh] flex items-center">
           <Loader />
         </div>
       )}
 
       {isModalOpen && (
         <QuoteModal item={selectedItem} onClose={() => setModalOpen(false)} />
+      )}
+
+      {isOverlayOpen && overlayImage && (
+        <ImageOverlayModal
+          imageSrc={overlayImage.src}
+          imageAlt={overlayImage.alt}
+          onClose={() => setOverlayOpen(false)}
+        />
       )}
     </section>
   )

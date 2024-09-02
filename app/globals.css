@@ -159,6 +159,10 @@ input:focus {
     background-position: 0% 0%, 50% 0%, 100% 0%;
   }
 }
+.order-2 {
+  order: 2 !important;
+}
+
 html {
   height: 100dvh;
   width: 100vw;
