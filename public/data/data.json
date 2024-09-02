@@ -11,6 +11,24 @@
           "description": "An expression of the soul.",
           "image": "/images/paintings/painting1.webp",
           "price": "KES 20,000"
+        },
+        {
+          "title": "Nature's Beauty",
+          "description": "A breathtaking depiction of the beauty of nature.",
+          "image": "/images/paintings/painting2.webp",
+          "price": "KES 25,000"
+        },
+        {
+          "title": "Cityscape",
+          "description": "A vibrant cityscape capturing the energy of urban life.",
+          "image": "/images/paintings/painting4.webp",
+          "price": "KES 22,000"
+        },
+        {
+          "title": "Abstract Dreams",
+          "description": "An abstract representation of dreams and imagination.",
+          "image": "/images/paintings/painting3.webp",
+          "price": "KES 28,000"
         }
       ]
     },
