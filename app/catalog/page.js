@@ -39,23 +39,24 @@ const CatalogPage = () => {
               className="collection w-full bg-transparent flex flex-col gap-4 pb-16"
             >
               <div
-                className={`details w-full md:w-2/5 flex flex-col gap-4 flex-grow-0 flex-shrink-0`}
+                className={`details w-full flex flex-col gap-4 flex-grow-0 flex-shrink-0`}
               >
-                <ScrollAnimationWrapper
-                  className={``}
-                  variant="slideInBottom"
-                  duration={0.5}
-                >
-                  <h2 className={`text-5xl md:text-7xl mix-blend-exclusion md:tracking-wider md:text-nowrap ${collectionIndex % 2 === 1 && 'text-right'}`}>
-                    {collection.title}
-                  </h2>
-                </ScrollAnimationWrapper>
+                <div className="w-full flex flex-col gap-4">
+                  <ScrollAnimationWrapper
+                    className={``}
+                    variant="slideInBottom"
+                    duration={0.5}
+                  >
+                    <h2 className={`text-5xl md:text-7xl mix-blend-exclusion md:tracking-wider md:text-nowrap ${collectionIndex % 2 === 1 && 'text-right'}`}>
+                      {collection.title}
+                    </h2>
+                  </ScrollAnimationWrapper>
+                  <ScrollAnimationWrapper variant="slideInBottom" duration={1.0} className={`${collectionIndex % 2 === 1 && 'flex justify-end'}`}>
+                    <p className={`${collectionIndex % 2 === 1 && 'text-right'} w-[90%]`}>{collection.description}</p>
+                  </ScrollAnimationWrapper>
+                </div>
 
-                <ScrollAnimationWrapper variant="slideInBottom" duration={1.0} className={`${collectionIndex % 2 === 1 && 'flex justify-end'}`}>
-                  <p className={`${collectionIndex % 2 === 1 && 'text-right'} w-[90%]`}>{collection.description}</p>
-                </ScrollAnimationWrapper>
-
-                <div className="images w-full max-h-[70vh] flex flex-col flex-wrap gap-x-[5%] gap-y-6">
+                <div className="images w-full aspect-[3/4] md:aspect-[21/7] overflow-hidden flex flex-col md:flex-row flex-wrap md:flex-nowrap gap-x-[5%] gap-y-6">
                   {collection.items.slice(0, 3).map((item, itemIndex) => (
                     <ScrollAnimationWrapper
                       key={item.title}
@@ -63,11 +64,13 @@ const CatalogPage = () => {
                       variant='slideInBottom'
                       className={`aspect-[2/3] overflow-hidden ${
                         (collectionIndex % 2 === 0 && itemIndex === 2) || (collectionIndex % 2 === 1 && itemIndex === 0)
-                          ? 'w-[59%]'
-                          : 'w-[39%]'
+                          ? 'w-[59%] md:w-1/4'
+                          : 'w-[39%] md:w-1/4'
                       } 
-                        ${collectionIndex % 2 === 1 && itemIndex === 1 && 'order-3'}
-                        ${collectionIndex % 2 === 1 && itemIndex === 2 && 'order-4'}
+                        ${collectionIndex % 2 === 1 && itemIndex === 1 && 'order-3 md:order-2'}
+                        ${collectionIndex % 2 === 1 && itemIndex === 2 && 'order-4 md:order-3'}
+                        ${collectionIndex % 2 === 0 && itemIndex === 2 && 'md:order-3'}
+                        ${collectionIndex % 2 === 0 && itemIndex === 1 && 'md:order-3'}
                       `}
                     >
                       <Image
@@ -83,7 +86,7 @@ const CatalogPage = () => {
                   <ScrollAnimationWrapper
                     variant="slideInBottom"
                     duration={1.5}
-                    className={`flex justify-center ${collectionIndex % 2 === 0 ? 'order-4' : 'order-2'}`}
+                    className={`flex justify-center ${collectionIndex % 2 === 0 ? 'order-4 md:order-2' : 'order-2 md:order-4'}`}
                   >
                     <RoundLink
                       href={`/catalog/${collection.slug}`}

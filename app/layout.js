@@ -20,10 +20,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className='overflow-hidden'>
       <body className="flex flex-col relative bg-ag-black">
         <Header />
-        <main className="">{children}</main>
+        <main className="overflow-hidden flex-shrink-0">{children}</main>
         <Footer />
       </body>
     </html>
