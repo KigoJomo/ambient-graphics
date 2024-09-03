@@ -13,7 +13,7 @@ export default function ArtCategoryCard({ category, onSelect }) {
 
   return (
     <div
-      className="art-category-card p-4 border border-gray-800 cursor-pointer hover:bg-gray-900 transition"
+      className="art-category-card p-2 md:p-4 border border-gray-800 cursor-pointer hover:bg-gray-900 transition w-[45%] md:w-64"
       onClick={handleSelect}
     >
       <Image
@@ -21,7 +21,7 @@ export default function ArtCategoryCard({ category, onSelect }) {
         alt={category}
         width={200}
         height={200}
-        className="w-full h-auto object-cover mb-4"
+        className="w-full aspect-square object-cover mb-4"
       />
       <h3 className="text-xl font-semibold capitalize text-center">
         {category}

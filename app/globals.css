@@ -152,6 +152,15 @@ input:focus {
   order: 2 !important;
 }
 
+textarea::-moz-placeholder, input::-moz-placeholder {
+  font-size: 0.8rem;
+}
+
+textarea::placeholder,
+input::placeholder {
+  font-size: 0.8rem;
+}
+
 html {
   height: 100dvh;
   width: 100vw;

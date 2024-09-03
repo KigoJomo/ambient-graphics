@@ -180,6 +180,11 @@ input {
   order: 2 !important;
 }
 
+textarea::placeholder,
+input::placeholder {
+  font-size: .8rem;
+}
+
 html {
   height: 100dvh;
   width: 100vw;
