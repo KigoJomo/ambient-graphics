@@ -26,7 +26,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   color: var(--ag-white);
   font-family: 'Lato', sans-serif;
   transition: all 0.3s ease;
@@ -187,7 +187,7 @@ html {
 
   body {
     height: 100%;
-    width: 100%;
+    width: 100vw !important;
     overflow-x: hidden;
     overflow-y: scroll;
     &::-webkit-scrollbar {
@@ -196,7 +196,7 @@ html {
     cursor: url('/images/cursor-default.webp'), auto;
 
     main {
-      width: 100vw;
+      width: 100%;
       overflow: hidden;
 
       section {

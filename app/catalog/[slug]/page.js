@@ -11,6 +11,7 @@ import ScrollAnimationWrapper from '@/app/components/ScrollAnimationWrapper'
 import Loader from '@/app/components/Loader'
 import ImageOverlayModal from '@/app/components/ImageOverlayModal'
 import RoundLink from '@/app/components/RoundLink'
+import Link from 'next/link'
 
 export default function CategoryPage() {
   const pathname = usePathname()
@@ -56,11 +57,21 @@ export default function CategoryPage() {
 
   return (
     <section className="category-page h-fit flex flex-col gap-8">
-      <div className="w-full flex justify-center">
+      <div className="w-full flex flex-col items-center">
+        <div className="w-full flex items-center">
+          <button
+            onClick={() => window.history.back()}
+            className="text-ag-ash hover:text-white flex items-end"
+          >
+            <p className='text-2xl h-1 flex items-end'>&larr;</p>
+            <p>Back</p>
+          </button>
+        </div>
         <SplitWord
           word={slug}
           className="text-4xl md:text-[11.5rem] md:leading-[11.5rem]"
         />
+        <p className="text-center text-ag-ash mt-2">Explore our exclusive collection of {slug}</p>
       </div>
 
       {data ? (
@@ -70,7 +81,7 @@ export default function CategoryPage() {
               <ScrollAnimationWrapper
                 variant="slideInBottom"
                 key={index}
-                className="item p-4 border border-gray-800 flex-shrink-0 flex flex-col gap-2 w-full md:w-1/4"
+                className="item p-4 border border-gray-800 flex-shrink-0 flex flex-col gap-4 w-full md:w-1/4"
               >
                 <h3 className="font-bold tracking-wider capitalize">
                   {item.title}
@@ -79,37 +90,27 @@ export default function CategoryPage() {
                 <div className="w-full aspect-[1/1] overflow-hidden cursor-pointer relative">
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt={`Artwork titled ${item.title} from the ${slug} collection`}
                     className="w-full aspect-[1/1] hover:scale-110"
                     width={300}
                     height={200}
                     onClick={() => handleImageClick(item.image, item.title)}
+                    loading="lazy"
                   />
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-gray-950 via-transparent to-transparent flex items-end justify-end p-2 md:p-0 pointer-events-none">
                     <div className="pointer-events-none h-12 w-12 md:w-24 md:h-24">
                       <RoundLink
-                        className="pointer-events-none w-full h-full scale-75 md:w-full md:h-24 md:scale-[0.35] md:ml-4 md:mt-4"
+                        className="pointer-events-none w-full h-full scale-75 md:w-full md:h-full md:scale-[0.35] md:ml-4 md:mt-4"
                         href={'/'}
                       />
                     </div>
                   </div>
-
-                  {/* <div className="w-full h-full absolute top-0 left-0 pointer-events-none p-4 flex items-end justify-end fade-image">
-                    <div className="pointer-events-none aspect-square w-12">
-                      <RoundLink className="pointer-events-none w-full h-full" href={'/'} />
-                    </div>
-                  </div> */}
                 </div>
 
                 <p className="text-ag-ash">{item.description}</p>
 
-                <div className="w-full flex items-center justify-between">
-                  <p className="font-semibold text-ag-brown">{item.price}</p>
-
-                  <CustomButton
-                    text={'get this'}
-                    onClick={() => handleRequestQuote(item)}
-                  />
+                <div className="w-full flex items-center justify-end">
+                  <Link class="bg-ag-white hover:bg-ag-brown text-sm text-ag-black px-4 py-2 font-lato font-normal" type="button" aria-label="Request a quote for Introspection" href='/shop'>get yours</Link>
                 </div>
               </ScrollAnimationWrapper>
             ))}
