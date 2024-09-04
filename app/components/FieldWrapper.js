@@ -14,7 +14,7 @@ export default function FieldWrapper({ label, name, type, value, onChange, place
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className="border p-2 w-full outline-none focus:border-ag-brown focus:outline-none"
+          className="border p-2 w-full outline-none focus:border-ag-brown focus:outline-none resize-none"
         />
       ) : type === 'select' ? (
         <select

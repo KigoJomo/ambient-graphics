@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react'
 import IdeaIcon from '../IdeaIcon'
+import ScrollAnimationWrapper from '../ScrollAnimationWrapper'
 
 export default function TipsAndPreview({ currentStep, formData }) {
   // Tips for each step
@@ -26,11 +27,11 @@ export default function TipsAndPreview({ currentStep, formData }) {
   }, [formData])
 
   return (
-    <div className="tips-preview-wrapper p-4 w-full flex flex-col items-start gap-4">
+    <div className="tips-preview-wrapper w-full flex flex-col items-start gap-4">
 
-      <div className="preview-section flex flex-col items-center md:order-2">
+      <div className="preview-section flex flex-col items-center gap-2 md:order-2">
         <h3 className="text-xl font-bold">Sample Preview</h3>
-        <div className="preview-container w-full aspect-square bg-ag-gray">{livePreview}</div>
+        <div className="preview-container w-full aspect-[4/3] md:aspect-square bg-ag-gray">{livePreview}</div>
       </div>
 
       <div className="price-section md:order-3">
@@ -38,9 +39,10 @@ export default function TipsAndPreview({ currentStep, formData }) {
       </div>
 
       <div className="tips-section text-ag-ash md:order-1 flex items-start gap-2">
-        {/* <h3 className="text-xl font-bold">Tip</h3> */}
-        <IdeaIcon />
-        <p className='text-xs text-ag-brown md:w-4/5'>{tips[currentStep]}</p>
+        <div className="h-6">
+          <IdeaIcon />
+        </div>
+        <ScrollAnimationWrapper className='text-xs text-ag-brown md:w-4/5'>{tips[currentStep]}</ScrollAnimationWrapper>
       </div>
     </div>
   )

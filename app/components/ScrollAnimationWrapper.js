@@ -7,6 +7,7 @@ const ScrollAnimationWrapper = ({
   variant = 'fadeIn',
   className,
   duration = 1,
+  onClick,
 }) => {
   const variants = {
     fadeIn: {
@@ -46,6 +47,7 @@ const ScrollAnimationWrapper = ({
       viewport={{ once: false }}
       variants={variants[variant]}
       className={`ease-out ${className}`}
+      onClick={onClick}
     >
       {children}
     </motion.div>

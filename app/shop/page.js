@@ -1,7 +1,7 @@
 // app/shop/page.js
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import CustomButton from '@/app/components/CustomButton'
 import ArtCategoryCard from '@/app/components/ArtCategoryCard'
 import SpecificationsForm from '@/app/components/SpecificationsForm'
@@ -14,15 +14,21 @@ export default function ShopPage() {
   const [customizationData, setCustomizationData] = useState(null)
   const [isQuoteRequested, setIsQuoteRequested] = useState(false)
   const [isConfirmationOpen, setConfirmationOpen] = useState(false)
+  
+  const quoteSummaryRef = useRef(null)
+  const customizationsRef = useRef(null)
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category)
+    customizationsRef.current.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleSpecificationsSubmit = (data) => {
     setCustomizationData(data)
     setIsQuoteRequested(true)
-    // scroll to the quote summary section
+    setTimeout(() => {
+      quoteSummaryRef.current.scrollIntoView({ behavior: 'smooth' })
+    }, 100);
   }
 
   const handleQuoteRequest = () => {
@@ -58,12 +64,16 @@ export default function ShopPage() {
         </div>
       </div>
 
+      <div ref={customizationsRef} className="h-2 w-full opacity-0 bg-ag-white -mt-6 -mb-6 md:mt-0 md:mb-0"></div>
+
       {selectedCategory && (
         <div className="specifications-section p-8 flex flex-col items-center gap-4 md:gap-8">
           <h2 className="text-2xl md:text-4xl font-bold text-center">Customize Your {selectedCategory.endsWith('s') ? selectedCategory.slice(0, -1) : selectedCategory}</h2>
           <SpecificationsForm category={selectedCategory} onSubmit={handleSpecificationsSubmit} />
         </div>
       )}
+
+      <div ref={quoteSummaryRef} className="h-2 w-full opacity-0 bg-ag-white -mt-6 -mb-6 md:mt-0 md:mb-0"></div>
 
       {customizationData && (
         <div className="quote-summary-section flex flex-col items-center gap-6 p-8">
@@ -78,7 +88,6 @@ export default function ShopPage() {
           message="Your quote request has been submitted! We'll get back to you soon."
         />
       )}
-
     </section>
   )
 }

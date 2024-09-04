@@ -1,6 +1,7 @@
 // app/components/QuoteSummary.js
 import React from 'react'
 import CustomButton from './CustomButton'
+import ScrollAnimationWrapper from './ScrollAnimationWrapper'
 
 export default function QuoteSummary({ data, onQuoteRequest }) {
   const fields = {
@@ -12,7 +13,7 @@ export default function QuoteSummary({ data, onQuoteRequest }) {
   }
 
   return (
-    <div className="w-full md:w-3/5 quote-summary flex flex-col items-center gap-4">
+    <ScrollAnimationWrapper variant='slideInBottom' className="w-full md:w-3/5 quote-summary flex flex-col items-center gap-4">
       <h3 className="text-lg font-bold tracking-wider text-center">
         Your Customization Summary
       </h3>
@@ -34,6 +35,6 @@ export default function QuoteSummary({ data, onQuoteRequest }) {
           onClick={onQuoteRequest}
         />
       </div>
-    </div>
+    </ScrollAnimationWrapper>
   )
 }

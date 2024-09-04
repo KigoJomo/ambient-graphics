@@ -97,7 +97,7 @@ export default function SpecificationsForm({ category, onSubmit }) {
           />
         </ScrollAnimationWrapper>
       ) : (
-        <div>
+        <div className='w-full'>
           <ScrollAnimationWrapper variant="slideInRight" className="w-full">
             <FieldWrapper
               label="Custom Dimensions"
@@ -111,7 +111,7 @@ export default function SpecificationsForm({ category, onSubmit }) {
           <button
             type="button"
             onClick={handleSwitchToPredefined}
-            className="text-ag-brown underline text-sm mt-2"
+            className="text-ag-brown underline text-xs mt-4 font-lato"
           >
             Switch to predefined dimensions
           </button>

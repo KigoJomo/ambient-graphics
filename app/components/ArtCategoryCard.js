@@ -1,5 +1,6 @@
 // app/components/ArtCategoryCard.js
 import Image from 'next/image'
+import ScrollAnimationWrapper from './ScrollAnimationWrapper'
 
 export default function ArtCategoryCard({ category, onSelect }) {
   const handleSelect = () => {
@@ -12,7 +13,7 @@ export default function ArtCategoryCard({ category, onSelect }) {
     : category
 
   return (
-    <div
+    <ScrollAnimationWrapper duration={1.5}
       className="art-category-card p-2 md:p-4 border border-gray-800 cursor-pointer hover:bg-gray-900 transition w-[45%] md:w-64"
       onClick={handleSelect}
     >
@@ -26,6 +27,6 @@ export default function ArtCategoryCard({ category, onSelect }) {
       <h3 className="text-xl font-semibold capitalize text-center">
         {category}
       </h3>
-    </div>
+    </ScrollAnimationWrapper>
   )
 }
