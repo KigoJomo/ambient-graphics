@@ -11,6 +11,7 @@ module.exports = {
         'ag-white': 'var(--ag-white)',
         'ag-ash': 'var(--ag-ash)',
         'ag-black': 'var(--ag-black)',
+        'ag-gray': 'var(--ag-gray)',
         'ag-brown': 'var(--ag-brown)',
       },
       cursor: {

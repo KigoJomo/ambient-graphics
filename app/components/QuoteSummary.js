@@ -1,19 +1,38 @@
 // app/components/QuoteSummary.js
+import React from 'react'
 import CustomButton from './CustomButton'
 
 export default function QuoteSummary({ data, onQuoteRequest }) {
+  const fields = {
+    'Art Style': data.style,
+    'Preferred Colors': data.colors,
+    Dimensions: data.dimensions,
+    Description: data.description,
+    'Reference Images': `${data.referenceImages.length} files uploaded`,
+  }
+
   return (
-    <div className="quote-summary p-4 border border-gray-800">
-      <h3 className="text-xl font-bold mb-4">Your Customization Summary</h3>
-      <ul>
-        <li><strong>Art Style:</strong> {data.style}</li>
-        <li><strong>Preferred Colors:</strong> {data.colors}</li>
-        <li><strong>Dimensions:</strong> {data.dimensions}</li>
-        <li><strong>Description:</strong> {data.description}</li>
-        <li><strong>Reference Images:</strong> {data.referenceImages.length} files uploaded</li>
+    <div className="w-full md:w-3/5 quote-summary flex flex-col items-center gap-4">
+      <h3 className="text-xl tracking-wider font-medium text-center">
+        Your Customization Summary
+      </h3>
+      <ul className="w-full flex flex-col items-start gap-4 py-4 md:px-16 bg-ag-gray">
+        {Object.entries(fields).map(([label, value]) => (
+          <li
+            key={label}
+            className="w-full py-2 px-4 flex flex-col gap-2 md:gap-0"
+          >
+            <p className="text-sm">{label}:</p>
+            <p className="text-sm text-ag-brown font-italiana font-bold tracking-wider">{value}</p>
+          </li>
+        ))}
       </ul>
-      <div className="mt-4">
-        <CustomButton text="Request a Quote" ariaLabel="Request a quote for your custom piece" onClick={onQuoteRequest} />
+      <div className="">
+        <CustomButton
+          text="Request a Quote"
+          ariaLabel="Request a quote for your custom piece"
+          onClick={onQuoteRequest}
+        />
       </div>
     </div>
   )

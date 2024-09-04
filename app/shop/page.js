@@ -28,7 +28,7 @@ export default function ShopPage() {
   }
 
   return (
-    <section className="shop-page h-fit flex flex-col gap-8">
+    <section className="shop-page h-fit flex flex-col gap-12">
       <div className="landing-section text-center p-8 flex flex-col items-center gap-4">
         <h1 className="text-4xl md:text-8xl">Bring Your Vision to Life</h1>
         <p className="text-ag-ash">Get a custom piece of art tailored just for you.</p>
@@ -57,7 +57,7 @@ export default function ShopPage() {
       )}
 
       {customizationData && (
-        <div className="quote-summary-section p-8">
+        <div className="quote-summary-section flex flex-col items-center gap-6 p-8">
           <h2 className="text-2xl md:text-4xl font-bold text-center">Review Your Specifications</h2>
           <QuoteSummary data={customizationData} onQuoteRequest={handleQuoteRequest} />
         </div>
