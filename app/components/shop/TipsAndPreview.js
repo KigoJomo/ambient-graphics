@@ -3,6 +3,7 @@
 import { useMemo } from 'react'
 import IdeaIcon from '../IdeaIcon'
 import ScrollAnimationWrapper from '../ScrollAnimationWrapper'
+import TypewriterComponent from '../TypewriterComponent'
 
 export default function TipsAndPreview({ currentStep, formData }) {
   // Tips for each step
@@ -38,11 +39,11 @@ export default function TipsAndPreview({ currentStep, formData }) {
         <h3 className="text-xs font-bold">Estimated Price: <span className='text-ag-brown'>KES {calculatedPrice}</span></h3>
       </div>
 
-      <div className="tips-section text-ag-ash md:order-1 flex items-start gap-2">
+      <div className="tips-section text-ag-ash md:order-1 md:w-3/5 flex items-start gap-2">
         <div className="h-6">
           <IdeaIcon />
         </div>
-        <ScrollAnimationWrapper className='text-xs text-ag-brown md:w-4/5'>{tips[currentStep]}</ScrollAnimationWrapper>
+        <TypewriterComponent text={tips[currentStep]} className='text-xs text-ag-brown' />
       </div>
     </div>
   )
