@@ -95,7 +95,6 @@ export default function CategoryPage() {
                     width={300}
                     height={200}
                     onClick={() => handleImageClick(item.image, item.title)}
-                    loading="lazy"
                   />
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-gray-950 via-transparent to-transparent flex items-end justify-end p-2 md:p-0 pointer-events-none">
                     <div className="pointer-events-none h-12 w-12 md:w-24 md:h-24">

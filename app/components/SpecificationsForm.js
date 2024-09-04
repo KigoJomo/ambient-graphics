@@ -1,4 +1,3 @@
-// app/components/SpecificationsForm.js
 import { useState } from 'react'
 import CustomButton from './CustomButton'
 import FieldWrapper from './FieldWrapper'
@@ -13,6 +12,7 @@ export default function SpecificationsForm({ category, onSubmit }) {
   })
 
   const [isCustomDimensions, setIsCustomDimensions] = useState(false)
+  const [currentStep, setCurrentStep] = useState(0)
 
   const handleInputChange = (e) => {
     const { name, value, files } = e.target
@@ -44,27 +44,42 @@ export default function SpecificationsForm({ category, onSubmit }) {
     onSubmit(formData)
   }
 
-  return (
-    <form className="specifications-form flex flex-col items-center gap-8" onSubmit={handleSubmit}>
-      <FieldWrapper
-        label="Art Style"
-        name="style"
-        type="text"
-        value={formData.style}
-        onChange={handleInputChange}
-        placeholder="Describe your desired style"
-      />
+  const handleNext = () => {
+    setCurrentStep((prevStep) => Math.min(prevStep + 1, steps.length - 1))
+  }
 
-      <FieldWrapper
-        label="Preferred Colors"
-        name="colors"
-        type="text"
-        value={formData.colors}
-        onChange={handleInputChange}
-        placeholder="List preferred colors"
-      />
+  const handlePrevious = () => {
+    setCurrentStep((prevStep) => Math.max(prevStep - 1, 0))
+  }
 
-      {!isCustomDimensions && (
+  // Define all the steps in an array
+  const steps = [
+    {
+      component: (
+        <FieldWrapper
+          label="Art Style"
+          name="style"
+          type="text"
+          value={formData.style}
+          onChange={handleInputChange}
+          placeholder="Describe your desired style"
+        />
+      ),
+    },
+    {
+      component: (
+        <FieldWrapper
+          label="Preferred Colors"
+          name="colors"
+          type="text"
+          value={formData.colors}
+          onChange={handleInputChange}
+          placeholder="List preferred colors"
+        />
+      ),
+    },
+    {
+      component: !isCustomDimensions ? (
         <FieldWrapper
           label="Dimensions"
           name="dimensions"
@@ -73,10 +88,8 @@ export default function SpecificationsForm({ category, onSubmit }) {
           onChange={handleDimensionsChange}
           options={['30x40 cm', '50x70 cm', '70x100 cm', 'Custom']}
         />
-      )}
-
-      {isCustomDimensions && (
-        <div className='w-full flex flex-col items-start gap-4'>
+      ) : (
+        <div>
           <FieldWrapper
             label="Custom Dimensions"
             name="dimensions"
@@ -93,27 +106,64 @@ export default function SpecificationsForm({ category, onSubmit }) {
             Switch to predefined dimensions
           </button>
         </div>
-      )}
+      ),
+    },
+    {
+      component: (
+        <FieldWrapper
+          label="Description"
+          name="description"
+          type="textarea"
+          value={formData.description}
+          onChange={handleInputChange}
+          placeholder="Describe your vision in detail"
+        />
+      ),
+    },
+    {
+      component: (
+        <FieldWrapper
+          label="Reference Images"
+          name="referenceImages"
+          type="file"
+          onChange={handleInputChange}
+          multiple
+          accept="image/*"
+        />
+      ),
+    },
+  ]
 
-      <FieldWrapper
-        label="Description"
-        name="description"
-        type="textarea"
-        value={formData.description}
-        onChange={handleInputChange}
-        placeholder="Describe your vision in detail"
-      />
+  return (
+    <form className="w-full md:w-3/5 specifications-form flex flex-col items-center gap-4" onSubmit={handleSubmit}>
+      {steps[currentStep].component}
 
-      <FieldWrapper
-        label="Reference Images"
-        name="referenceImages"
-        type="file"
-        onChange={handleInputChange}
-        multiple
-        accept="image/*"
-      />
+      <div className="flex justify-between w-full mt-4">
+        <button
+          type="button"
+          onClick={handlePrevious}
+          disabled={currentStep === 0}
+          className={`px-4 py-2 font-lato bg-transparent border text-white ${currentStep === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+        >
+          &#x1f850;
+        </button>
 
-      <CustomButton text="Submit Specifications" ariaLabel="Submit your specifications" />
+        {currentStep < steps.length - 1 ? (
+          <button
+            type="button"
+            onClick={handleNext}
+            className="px-4 py-2 border bg-transparent text-white font-lato"
+          >
+            &#x1f852;
+          </button>
+        ) : (
+          <CustomButton
+            text="Submit"
+            ariaLabel="Submit your specifications"
+            submit
+          />
+        )}
+      </div>
     </form>
   )
 }
