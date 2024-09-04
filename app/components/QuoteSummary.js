@@ -13,7 +13,7 @@ export default function QuoteSummary({ data, onQuoteRequest }) {
 
   return (
     <div className="w-full md:w-3/5 quote-summary flex flex-col items-center gap-4">
-      <h3 className="text-xl tracking-wider font-medium text-center">
+      <h3 className="text-lg font-bold tracking-wider text-center">
         Your Customization Summary
       </h3>
       <ul className="w-full flex flex-col items-start gap-4 py-4 md:px-16 bg-ag-gray">

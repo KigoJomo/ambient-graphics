@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CustomButton from './CustomButton'
 import FieldWrapper from './FieldWrapper'
 import TipsAndPreview from './shop/TipsAndPreview'
+import ScrollAnimationWrapper from './ScrollAnimationWrapper'
 
 export default function SpecificationsForm({ category, onSubmit }) {
   const [formData, setFormData] = useState({
@@ -57,48 +58,56 @@ export default function SpecificationsForm({ category, onSubmit }) {
   const steps = [
     {
       component: (
-        <FieldWrapper
-          label="Art Style"
-          name="style"
-          type="text"
-          value={formData.style}
-          onChange={handleInputChange}
-          placeholder="Describe your desired style"
-        />
+        <ScrollAnimationWrapper variant="slideInRight" className="w-full">
+          <FieldWrapper
+            label="Art Style"
+            name="style"
+            type="text"
+            value={formData.style}
+            onChange={handleInputChange}
+            placeholder="Describe your desired style"
+          />
+        </ScrollAnimationWrapper>
       ),
     },
     {
       component: (
-        <FieldWrapper
-          label="Preferred Colors"
-          name="colors"
-          type="text"
-          value={formData.colors}
-          onChange={handleInputChange}
-          placeholder="List preferred colors"
-        />
+        <ScrollAnimationWrapper variant="slideInRight" className="w-full">
+          <FieldWrapper
+            label="Preferred Colors"
+            name="colors"
+            type="text"
+            value={formData.colors}
+            onChange={handleInputChange}
+            placeholder="List preferred colors"
+          />
+        </ScrollAnimationWrapper>
       ),
     },
     {
       component: !isCustomDimensions ? (
-        <FieldWrapper
-          label="Dimensions"
-          name="dimensions"
-          type="select"
-          value={formData.dimensions}
-          onChange={handleDimensionsChange}
-          options={['30x40 cm', '50x70 cm', '70x100 cm', 'Custom']}
-        />
+        <ScrollAnimationWrapper variant="slideInRight" className="w-full">
+          <FieldWrapper
+            label="Dimensions"
+            name="dimensions"
+            type="select"
+            value={formData.dimensions}
+            onChange={handleDimensionsChange}
+            options={['30x40 cm', '50x70 cm', '70x100 cm', 'Custom']}
+          />
+        </ScrollAnimationWrapper>
       ) : (
         <div>
-          <FieldWrapper
-            label="Custom Dimensions"
-            name="dimensions"
-            type="text"
-            value={formData.dimensions}
-            onChange={handleInputChange}
-            placeholder="Enter custom dimensions (e.g., 100x150 cm)"
-          />
+          <ScrollAnimationWrapper variant="slideInRight" className="w-full">
+            <FieldWrapper
+              label="Custom Dimensions"
+              name="dimensions"
+              type="text"
+              value={formData.dimensions}
+              onChange={handleInputChange}
+              placeholder="Enter custom dimensions (e.g., 100x150 cm)"
+            />
+          </ScrollAnimationWrapper>
           <button
             type="button"
             onClick={handleSwitchToPredefined}
@@ -111,36 +120,43 @@ export default function SpecificationsForm({ category, onSubmit }) {
     },
     {
       component: (
-        <FieldWrapper
-          label="Description"
-          name="description"
-          type="textarea"
-          value={formData.description}
-          onChange={handleInputChange}
-          placeholder="Describe your vision in detail"
-        />
+        <ScrollAnimationWrapper variant="slideInRight" className="w-full">
+          <FieldWrapper
+            label="Description"
+            name="description"
+            type="textarea"
+            value={formData.description}
+            onChange={handleInputChange}
+            placeholder="Describe your vision in detail"
+          />
+        </ScrollAnimationWrapper>
       ),
     },
     {
       component: (
-        <FieldWrapper
-          label="Reference Images"
-          name="referenceImages"
-          type="file"
-          onChange={handleInputChange}
-          multiple
-          accept="image/*"
-        />
+        <ScrollAnimationWrapper variant="slideInRight" className="w-full">
+          <FieldWrapper
+            label="Reference Images"
+            name="referenceImages"
+            type="file"
+            onChange={handleInputChange}
+            multiple
+            accept="image/*"
+          />
+        </ScrollAnimationWrapper>
       ),
     },
   ]
 
   return (
     <div className="flex flex-col md:flex-row md:items-center gap-8 w-full md:px-32">
-      {/* Tips and Preview Section */}
+      
       <TipsAndPreview currentStep={currentStep} formData={formData} />
 
-      <form className="w-full specifications-form flex flex-col items-center gap-4" onSubmit={handleSubmit}>
+      <form
+        className="w-full specifications-form flex flex-col items-center gap-4"
+        onSubmit={handleSubmit}
+      >
         {steps[currentStep].component}
 
         <div className="flex justify-between w-full mt-4">
@@ -148,7 +164,9 @@ export default function SpecificationsForm({ category, onSubmit }) {
             type="button"
             onClick={handlePrevious}
             disabled={currentStep === 0}
-            className={`px-4 py-2 font-lato bg-transparent border text-white ${currentStep === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`px-4 py-2 font-lato bg-transparent border text-white ${
+              currentStep === 0 ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
             &#x1f850;
           </button>

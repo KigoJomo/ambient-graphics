@@ -7,6 +7,7 @@ import ArtCategoryCard from '@/app/components/ArtCategoryCard'
 import SpecificationsForm from '@/app/components/SpecificationsForm'
 import QuoteSummary from '@/app/components/QuoteSummary'
 import ConfirmationModal from '@/app/components/ConfirmationModal'
+import SplitWord from '../components/SplitWord'
 
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState(null)
@@ -31,7 +32,14 @@ export default function ShopPage() {
   return (
     <section className="shop-page h-fit flex flex-col gap-12">
       <div className="landing-section text-center p-8 flex flex-col items-center gap-4">
-        <h1 className="text-4xl md:text-8xl">Bring Your Vision to Life</h1>
+        <h1 className="text-4xl md:text-8xl hidden">Bring Your Vision to Life</h1>
+        <div className="w-full flex flex-wrap gap-2 md:gap-6 items-center justify-center text-4xl">
+          <SplitWord className='text-4xl md:text-8xl' word={'Bring'} />
+          <SplitWord className='text-4xl md:text-8xl' word={'your'} />
+          <SplitWord className='text-4xl md:text-8xl' word={'vision'} />
+          <SplitWord className='text-4xl md:text-8xl' word={'to'} />
+          <SplitWord className='text-4xl md:text-8xl' word={'life'} />
+        </div>
         <p className="text-ag-ash">Get a custom piece of art tailored just for you.</p>
         <CustomButton
           text="Start Your Custom Order"
@@ -70,6 +78,7 @@ export default function ShopPage() {
           message="Your quote request has been submitted! We'll get back to you soon."
         />
       )}
+
     </section>
   )
 }
