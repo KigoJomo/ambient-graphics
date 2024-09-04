@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import CustomButton from './CustomButton'
 import FieldWrapper from './FieldWrapper'
+import TipsAndPreview from './shop/TipsAndPreview'
 
 export default function SpecificationsForm({ category, onSubmit }) {
   const [formData, setFormData] = useState({
@@ -135,35 +136,40 @@ export default function SpecificationsForm({ category, onSubmit }) {
   ]
 
   return (
-    <form className="w-full md:w-3/5 specifications-form flex flex-col items-center gap-4" onSubmit={handleSubmit}>
-      {steps[currentStep].component}
+    <div className="flex flex-col md:flex-row md:items-center gap-8 w-full md:px-32">
+      {/* Tips and Preview Section */}
+      <TipsAndPreview currentStep={currentStep} formData={formData} />
 
-      <div className="flex justify-between w-full mt-4">
-        <button
-          type="button"
-          onClick={handlePrevious}
-          disabled={currentStep === 0}
-          className={`px-4 py-2 font-lato bg-transparent border text-white ${currentStep === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
-        >
-          &#x1f850;
-        </button>
+      <form className="w-full specifications-form flex flex-col items-center gap-4" onSubmit={handleSubmit}>
+        {steps[currentStep].component}
 
-        {currentStep < steps.length - 1 ? (
+        <div className="flex justify-between w-full mt-4">
           <button
             type="button"
-            onClick={handleNext}
-            className="px-4 py-2 border bg-transparent text-white font-lato"
+            onClick={handlePrevious}
+            disabled={currentStep === 0}
+            className={`px-4 py-2 font-lato bg-transparent border text-white ${currentStep === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            &#x1f852;
+            &#x1f850;
           </button>
-        ) : (
-          <CustomButton
-            text="Submit"
-            ariaLabel="Submit your specifications"
-            submit
-          />
-        )}
-      </div>
-    </form>
+
+          {currentStep < steps.length - 1 ? (
+            <button
+              type="button"
+              onClick={handleNext}
+              className="px-4 py-2 border bg-transparent text-white font-lato"
+            >
+              &#x1f852;
+            </button>
+          ) : (
+            <CustomButton
+              text="Submit"
+              ariaLabel="Submit your specifications"
+              submit
+            />
+          )}
+        </div>
+      </form>
+    </div>
   )
 }

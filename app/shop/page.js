@@ -21,6 +21,7 @@ export default function ShopPage() {
   const handleSpecificationsSubmit = (data) => {
     setCustomizationData(data)
     setIsQuoteRequested(true)
+    // scroll to the quote summary section
   }
 
   const handleQuoteRequest = () => {
@@ -50,7 +51,7 @@ export default function ShopPage() {
       </div>
 
       {selectedCategory && (
-        <div className="specifications-section p-8 flex flex-col items-center gap-6">
+        <div className="specifications-section p-8 flex flex-col items-center gap-4 md:gap-8">
           <h2 className="text-2xl md:text-4xl font-bold text-center">Customize Your {selectedCategory.endsWith('s') ? selectedCategory.slice(0, -1) : selectedCategory}</h2>
           <SpecificationsForm category={selectedCategory} onSubmit={handleSpecificationsSubmit} />
         </div>
