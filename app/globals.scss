@@ -216,12 +216,14 @@ html {
 
     main {
       width: 100%;
+      height: fit-content;
       overflow: hidden;
 
       section {
         width: 100vw;
-        height: 100dvh;
-        overflow-x: hidden;
+        height: fit-content;
+        display: flex;
+        overflow: hidden;
         flex-shrink: 0;
         padding: 4rem 3rem;
         

@@ -54,6 +54,18 @@ export default function SpecificationsForm({ category, onSubmit }) {
     setCurrentStep((prevStep) => Math.max(prevStep - 1, 0))
   }
 
+  // Handle Enter key press
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      if (currentStep < steps.length - 1) {
+        handleNext() // Move to the next step
+      } else {
+        handleSubmit(e) // Submit the form on the last step
+      }
+    }
+  }
+
   // Define all the steps in an array
   const steps = [
     {
@@ -66,6 +78,7 @@ export default function SpecificationsForm({ category, onSubmit }) {
             value={formData.style}
             onChange={handleInputChange}
             placeholder="Describe your desired style"
+            onKeyDown={handleKeyPress}
           />
         </ScrollAnimationWrapper>
       ),
@@ -80,6 +93,7 @@ export default function SpecificationsForm({ category, onSubmit }) {
             value={formData.colors}
             onChange={handleInputChange}
             placeholder="List preferred colors"
+            onKeyDown={handleKeyPress}
           />
         </ScrollAnimationWrapper>
       ),
@@ -94,10 +108,11 @@ export default function SpecificationsForm({ category, onSubmit }) {
             value={formData.dimensions}
             onChange={handleDimensionsChange}
             options={['30x40 cm', '50x70 cm', '70x100 cm', 'Custom']}
+            onKeyDown={handleKeyPress}
           />
         </ScrollAnimationWrapper>
       ) : (
-        <div className='w-full'>
+        <div className="w-full">
           <ScrollAnimationWrapper variant="slideInRight" className="w-full">
             <FieldWrapper
               label="Custom Dimensions"
@@ -106,6 +121,7 @@ export default function SpecificationsForm({ category, onSubmit }) {
               value={formData.dimensions}
               onChange={handleInputChange}
               placeholder="Enter custom dimensions (e.g., 100x150 cm)"
+              onKeyDown={handleKeyPress}
             />
           </ScrollAnimationWrapper>
           <button
@@ -128,6 +144,7 @@ export default function SpecificationsForm({ category, onSubmit }) {
             value={formData.description}
             onChange={handleInputChange}
             placeholder="Describe your vision in detail"
+            onKeyDown={handleKeyPress}
           />
         </ScrollAnimationWrapper>
       ),
@@ -142,6 +159,7 @@ export default function SpecificationsForm({ category, onSubmit }) {
             onChange={handleInputChange}
             multiple
             accept="image/*"
+            onKeyDown={handleKeyPress}
           />
         </ScrollAnimationWrapper>
       ),

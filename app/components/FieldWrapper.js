@@ -1,6 +1,6 @@
 // app/components/FieldWrapper.js
 
-export default function FieldWrapper({ label, name, type, value, onChange, placeholder, multiple, accept, options }) {
+export default function FieldWrapper({ label, name, type, value, onChange, onKeyDown, placeholder, multiple, accept, options }) {
   return (
     <div className="field-wrapper w-full">
       <label htmlFor={name} className="block font-semibold mb-2">
@@ -13,6 +13,7 @@ export default function FieldWrapper({ label, name, type, value, onChange, place
           name={name}
           value={value}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           placeholder={placeholder}
           className="border p-2 w-full outline-none focus:border-ag-brown focus:outline-none resize-none"
         />
@@ -22,6 +23,7 @@ export default function FieldWrapper({ label, name, type, value, onChange, place
           name={name}
           value={value}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           className="border p-2 w-full bg-transparent outline-none focus:border-ag-brown focus:outline-none"
         >
           <option value="" disabled className='bg-gray-800'>
@@ -39,6 +41,7 @@ export default function FieldWrapper({ label, name, type, value, onChange, place
           name={name}
           type="file"
           onChange={onChange}
+          onKeyDown={onKeyDown}
           multiple={multiple}
           accept={accept}
           className="border p-2 w-full outline-none focus:border-ag-brown focus:outline-none"
@@ -50,6 +53,7 @@ export default function FieldWrapper({ label, name, type, value, onChange, place
           type={type}
           value={value}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           placeholder={placeholder}
           className="border p-2 w-full outline-none focus:border-ag-brown focus:outline-none"
         />

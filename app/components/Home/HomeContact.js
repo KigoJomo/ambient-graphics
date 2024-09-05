@@ -26,19 +26,20 @@ const HomeContact = () => {
         </div>
       </div>
 
-      <div className="w-full flex gap-6 md:gap-12 overflow-y-hidden overflow-x-scroll scrollbar-hidden">
+      <div className="w-full flex gap-6 md:gap-16 overflow-y-hidden overflow-x-scroll scrollbar-hidden">
+
         {recentPieces.map((piece, index) => {
-          const baseWidth = 150 // Base width of 100px
+          const baseWidth = 150 // Base width of 150px
           const factors = [1, 1.5, 2, 2.5] // Multiplication factors
           const randomFactor =
             factors[Math.floor(Math.random() * factors.length)] // Randomly select a factor
           const calculatedWidth = baseWidth * randomFactor // Calculate the final width
 
           return (
-            <ScrollAnimationWrapper variant='slideInTop' duration={index / 1.75}
+            <ScrollAnimationWrapper variant='slideInBottom' duration={index / 1.75}
               key={index}
-              className="flex-shrink-0 flex flex-col items-center gap-2"
-              style={{ width: `${calculatedWidth}px` }} // Apply calculated width
+              className="flex-shrink-0 flex flex-col items-center gap-2 w-1/3 md:w-1/4"
+              style={{ width: `${calculatedWidth}px` }}
             >
               <div className="w-full overflow-hidden">
                 <Image

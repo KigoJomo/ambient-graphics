@@ -8,7 +8,7 @@ const HomeAbout = () => {
   return (
     <section className="h-fit flex flex-col gap-0">
       <div className="top w-full md:h-[65vh] flex flex-col md:flex-row gap-4 relative">
-        <div className="image w-auto absolute opacity-5 -right-36 -top-12 -z-10">
+        <div className="image w-auto md:w-[40vw] absolute opacity-5 -right-36 -top-12 md:-right-12 md:-top-24 -z-10">
           <Image
             alt="ambient graphics black panther"
             src="/images/panther_emblem_brown.webp"
@@ -50,7 +50,7 @@ const HomeAbout = () => {
       </div>
 
       <div className="bottom flex flex-col md:flex-row gap-8 md:gap-4 md:justify-end relative">
-        <div className="image w-full md:w-auto absolute opacity-5 -left-32 top-[45%] md:top-0 -z-10">
+        <div className="image w-full md:w-[40vw] absolute opacity-5 -left-32 top-[45%] md:-left-24 md:top-0 -z-10">
           <Image
             alt="ambient graphics black panther"
             src="/images/panther_emblem_brown.webp"

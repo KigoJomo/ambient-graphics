@@ -190,12 +190,16 @@ html body::-webkit-scrollbar {
 }
 html body main {
   width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   overflow: hidden;
 }
 html body main section {
   width: 100vw;
-  height: 100dvh;
-  overflow-x: hidden;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  overflow: hidden;
   flex-shrink: 0;
   padding: 4rem 3rem;
 }

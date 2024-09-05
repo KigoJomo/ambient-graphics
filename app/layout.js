@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="flex flex-col relative bg-ag-black">
         <Header />
-        <main className="overflow-hidden flex-shrink-0 flex-grow-0">{children}</main>
+        <main className="overflow-hidden flex flex-col flex-shrink-0 flex-grow-0">{children}</main>
         <Footer />
       </body>
     </html>
