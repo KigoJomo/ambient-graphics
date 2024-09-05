@@ -4,7 +4,7 @@ import SplitWord from '../SplitWord'
 
 const AtelierIntro = () => {
   return (
-    <section className="flex flex-col gap-6">
+    <section className="flex flex-col gap-12">
       <SplitWord word="Atelier" />
       <div className="w-full h-[1px] bg-ag-ash opacity-20"></div>
 

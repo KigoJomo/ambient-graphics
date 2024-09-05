@@ -1,10 +1,12 @@
+import TypewriterComponent from "../TypewriterComponent";
+
 const { default: ScrollAnimationWrapper } = require("../ScrollAnimationWrapper");
 
 const AtelierStudio = () => {
   return (
-    <section>
+    <section className='flex flex-col gap-12 pt-16'>
       <ScrollAnimationWrapper>
-        <h2 className='font-normal text-center text-3xl'>Welcome to Ambient Graphics studio</h2>
+        <TypewriterComponent textLevel="h2" className="font-normal text-center text-3xl" text={"Welcome to Ambient Graphics studio"} />
       </ScrollAnimationWrapper>
     </section>
   );
