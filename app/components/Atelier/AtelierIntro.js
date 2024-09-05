@@ -7,7 +7,7 @@ const AtelierIntro = () => {
       <SplitWord word="Atelier" />
       <div className="w-full h-[1px] bg-ag-ash opacity-20"></div>
 
-      <div className="atelier-meaning w-full flex flex-col gap-4">
+      <div className="atelier-meaning w-full flex flex-col gap-2 bg-ag-gray p-4">
         <div className="w-full flex items-start gap-4">
           <IdeaIcon brown className={'scale-150'} />
 
@@ -18,7 +18,7 @@ const AtelierIntro = () => {
 
         </div>
 
-        <div className="w-full flex flex-col gap-2">
+        <div className="w-full flex flex-col gap-0">
           <p className='text-gray-500 italic'>noun</p>
           <p className='meaning'>A workshop or studio, especially one used by an artist or designer.</p>
         </div>
