@@ -1,4 +1,5 @@
 import IdeaIcon from '../IdeaIcon'
+import ScrollAnimationWrapper from '../ScrollAnimationWrapper'
 import SplitWord from '../SplitWord'
 
 const AtelierIntro = () => {
@@ -24,6 +25,7 @@ const AtelierIntro = () => {
         </div>
 
       </div>
+
     </section>
   )
 }

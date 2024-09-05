@@ -100,8 +100,6 @@ img {
 }
 
 .split-word span:hover {
-  /* color: var(--ag-brown); */
-  /* text-stroke: 1px var(--ag-white); */
   color: transparent;
   -webkit-text-stroke: 1px var(--ag-white);
 }
