@@ -6,15 +6,11 @@ import SplitWord from '../SplitWord'
 const AtelierIntro = () => {
   return (
     <section className="flex flex-col items-center gap-12">
-      <div className="w-full flex items-center justify-center gap-9 mt-6 overflow-visible relative">
-        <SplitWord word="Atelier" className='hidden md:flex' />
-        <ScrollAnimationWrapper variant='slideInBottom'>
-          <h1
-            className="md:hidden font-bold bg-[url('/images/montage.webp')] bg-clip-text bg-cover bg-center text-transparent tracking-wider"
-          >Atelier</h1>
-        </ScrollAnimationWrapper>
+      <div className="w-full flex items-center justify-center gap-9 overflow-visible relative">
 
-        <ScrollAnimationWrapper className="image hidden md:flex w-auto h-64 aspect-[21/4] overflow-hidden absolute -z-10">
+        <SplitWord word="Atelier" className='drop-shadow-2xl' />
+
+        <ScrollAnimationWrapper className="image w-screen aspect-[21/4] overflow-hidden absolute -z-10">
           <Image 
             alt="ambient graphics studio" 
             src="/images/montage.webp" 
@@ -27,7 +23,7 @@ const AtelierIntro = () => {
 
       <div className="w-full h-[1px] bg-ag-ash opacity-20"></div>
 
-      <div className="atelier-meaning w-full md:w-3/4 flex flex-col gap-2 bg-ag-gray p-4">
+      <ScrollAnimationWrapper className="atelier-meaning w-full md:w-3/4 flex flex-col gap-2 bg-ag-gray p-4">
         <div className="w-full flex items-start gap-4">
           <IdeaIcon brown className={'scale-150'} />
 
@@ -43,7 +39,7 @@ const AtelierIntro = () => {
             A workshop or studio, especially one used by an artist or designer.
           </p>
         </div>
-      </div>
+      </ScrollAnimationWrapper>
     </section>
   )
 }

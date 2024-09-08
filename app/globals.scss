@@ -37,7 +37,7 @@
   font-family: 'Lato', sans-serif;
 }
 
-.font-italiana{
+.font-italiana {
   font-family: 'Italiana', sans-serif;
 }
 
@@ -51,7 +51,7 @@
   border-radius: 50%;
   background-color: white;
   transition: transform 350ms ease;
-  transform: translate(-50%, -50%) scale(.4);
+  transform: translate(-50%, -50%) scale(0.4);
   z-index: 1000;
 }
 
@@ -135,15 +135,27 @@ img {
   }
 }
 
-.text-ag-brown{
-  span{
+.stroke-white {
+  span {
+    -webkit-text-stroke: 1px var(--ag-white);
+  }
+}
+
+.text-ag-brown {
+  span {
     color: var(--ag-brown);
   }
 }
 
-.text-ag-black{
-  span{
+.text-ag-black {
+  span {
     color: var(--ag-black);
+  }
+}
+
+.text-ag-ash{
+  span {
+    color: var(--ag-ash);
   }
 }
 
@@ -220,7 +232,7 @@ input {
 
 textarea::placeholder,
 input::placeholder {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 html {
@@ -251,7 +263,6 @@ html {
         overflow: hidden;
         flex-shrink: 0;
         padding: 4rem 3rem;
-        
       }
       @media (max-width: 767px) {
         section {

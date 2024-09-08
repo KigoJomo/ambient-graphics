@@ -124,12 +124,20 @@ img {
   -webkit-text-stroke: 1px var(--ag-white);
 }
 
+.stroke-white span {
+  -webkit-text-stroke: 1px var(--ag-white);
+}
+
 .text-ag-brown span {
   color: var(--ag-brown);
 }
 
 .text-ag-black span {
   color: var(--ag-black);
+}
+
+.text-ag-ash span {
+  color: var(--ag-ash);
 }
 
 .round-button {
