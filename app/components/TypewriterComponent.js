@@ -47,7 +47,7 @@ const TypewriterComponent = ({
         observerRef.current.disconnect()
       }
     }
-  }, [stringText])
+  }, [delay, stringText])
 
   return React.createElement(
     textLevel,
