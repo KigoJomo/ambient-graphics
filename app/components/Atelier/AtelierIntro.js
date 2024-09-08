@@ -10,7 +10,7 @@ const AtelierIntro = () => {
         <SplitWord word="Atelier" className='hidden md:flex' />
         <ScrollAnimationWrapper variant='slideInBottom'>
           <h1
-            className="md:hidden font-bold bg-[url('/images/montage.webp')] bg-clip-text bg-cover bg-center text-transparent"
+            className="md:hidden font-bold bg-[url('/images/montage.webp')] bg-clip-text bg-cover bg-center text-transparent tracking-wider"
           >Atelier</h1>
         </ScrollAnimationWrapper>
 

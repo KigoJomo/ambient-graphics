@@ -1,3 +1,4 @@
+import CustomCursor from './components/CustomCursor'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import './globals.css'
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col relative bg-ag-black">
+        <CustomCursor />
         <Header />
         <main className="overflow-hidden flex flex-col flex-shrink-0 flex-grow-0">{children}</main>
         <Footer />
