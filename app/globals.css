@@ -109,6 +109,10 @@ img {
   color: var(--ag-brown);
 }
 
+.text-ag-black span {
+  color: var(--ag-black);
+}
+
 .round-button {
   background: url("/images/round_button.webp") center/cover no-repeat;
 }
