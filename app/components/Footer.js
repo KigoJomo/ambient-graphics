@@ -29,9 +29,10 @@ const Footer = () => {
             studio <br />
             contact
           </p>
+          <Link href='https://wa.link/8arlm2' target='_blank' className='text-sm hover:text-ag-brown underline underline-offset-4 md:no-underline'>Whatsapp</Link>
           <Link
             href='mailto:ambientgraphics@gmail.com'
-            className="text-sm lowercase hover:text-ag-brown"
+            className="text-sm lowercase hover:text-ag-brown underline underline-offset-4 md:no-underline"
           >
             @ambientgraphics
           </Link>
