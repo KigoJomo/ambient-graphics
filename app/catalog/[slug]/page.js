@@ -12,6 +12,7 @@ import Loader from '@/app/components/Loader'
 import ImageOverlayModal from '@/app/components/ImageOverlayModal'
 import RoundLink from '@/app/components/RoundLink'
 import Link from 'next/link'
+import { RiFullscreenFill } from 'react-icons/ri'
 
 export default function CategoryPage() {
   const pathname = usePathname()
@@ -63,7 +64,7 @@ export default function CategoryPage() {
             onClick={() => window.history.back()}
             className="text-ag-ash hover:text-white flex items-end"
           >
-            <p className='text-2xl h-1 flex items-end'>&larr;</p>
+            <p className="text-2xl h-1 flex items-end">&larr;</p>
             <p>Back</p>
           </button>
         </div>
@@ -71,7 +72,9 @@ export default function CategoryPage() {
           word={slug}
           className="text-4xl md:text-[11.5rem] md:leading-[11.5rem]"
         />
-        <p className="text-center text-ag-ash mt-2">Explore our exclusive collection of {slug}</p>
+        <p className="text-center text-ag-ash mt-2">
+          Explore our exclusive collection of {slug}
+        </p>
       </div>
 
       {data ? (
@@ -96,20 +99,22 @@ export default function CategoryPage() {
                     height={200}
                     onClick={() => handleImageClick(item.image, item.title)}
                   />
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-gray-950 via-transparent to-transparent flex items-end justify-end p-2 md:p-0 pointer-events-none">
-                    <div className="pointer-events-none h-12 w-12 md:w-24 md:h-24">
-                      <RoundLink
-                        className="pointer-events-none w-full h-full scale-75 md:w-full md:h-full md:scale-[0.35] md:ml-4 md:mt-4"
-                        href={'/'}
-                      />
-                    </div>
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-gray-950 via-transparent to-transparent flex items-end justify-end p-2 md:p-2 pointer-events-none">
+                    <RiFullscreenFill />
                   </div>
                 </div>
 
                 <p className="text-ag-ash">{item.description}</p>
 
                 <div className="w-full flex items-center justify-end">
-                  <Link class="bg-ag-white hover:bg-ag-brown text-sm text-ag-black px-4 py-2 font-lato font-normal" type="button" aria-label="Request a quote for Introspection" href='/shop'>get yours</Link>
+                  <Link
+                    class="bg-ag-white hover:bg-ag-brown text-sm text-ag-black px-4 py-2 font-lato font-normal"
+                    type="button"
+                    aria-label={`Request a quote for ${item.title}`}
+                    href="/shop"
+                  >
+                    get yours
+                  </Link>
                 </div>
               </ScrollAnimationWrapper>
             ))}

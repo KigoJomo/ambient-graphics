@@ -73,6 +73,12 @@
           "description": "A smile worth a thousand words.",
           "image": "/images/portraits/portrait6.webp",
           "price": "KES 20,000"
+        },
+        {
+          "title": "The Gaze of the Wild",
+          "description": "A masterful portrayal of intensity, captured through intricate cross-hatching and a stark contrast of light and shadow.",
+          "image": "/images/portraits/leopard.webp",
+          "price": "KES 20,000"
         }
       ]
     },
