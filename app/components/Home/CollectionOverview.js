@@ -27,7 +27,6 @@ const CollectionOverview = ({ collections }) => {
   return (
     <div className="w-full flex flex-col gap-0">
       {collections.map((collection, index) => {
-        const coverImageUrl = WixMediaImage(collection.data.coverImage)
 
         return (
           <div key={index} className="flex flex-col gap-0 border-t">
