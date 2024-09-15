@@ -64,7 +64,7 @@ const CollectionOverview = ({ collections }) => {
                   <ScrollAnimationWrapper className="image w-3/5 md:w-full aspect-[2/3] md:aspect-[3/4] shadow-md shadow-ag-black">
                     <WixMediaImage
                       media={collection.data.coverImage}
-                      alt={`${collection.data.title}`}
+                      alt={`ambient graphics ${collection.data.title}`}
                       width={1000}
                       height={1000}
                     />
