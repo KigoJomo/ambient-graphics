@@ -18,6 +18,8 @@ export function WixMediaImage({
   alt = 'Image not available',
   sizes = '100vw',
   className = '', 
+  onClick,
+  onLoadingComplete
 }) {
   // Generate the image URL or fallback to a placeholder
   const imageUrl = media
@@ -33,6 +35,8 @@ export function WixMediaImage({
       height={height}
       sizes={sizes}
       className={className}
+      onClick={onClick}
+      onLoadingComplete={onLoadingComplete}
     />
   );
 }

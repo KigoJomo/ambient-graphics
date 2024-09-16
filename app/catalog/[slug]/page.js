@@ -3,16 +3,19 @@
 
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import QuoteModal from '@/app/components/QuoteModal'
 import SplitWord from '@/app/components/SplitWord'
-import CustomButton from '@/app/components/CustomButton'
 import ScrollAnimationWrapper from '@/app/components/ScrollAnimationWrapper'
 import Loader from '@/app/components/Loader'
 import ImageOverlayModal from '@/app/components/ImageOverlayModal'
-import RoundLink from '@/app/components/RoundLink'
 import Link from 'next/link'
 import { RiFullscreenFill } from 'react-icons/ri'
+import { wixClient } from '@/app/hooks/wixClient'
+import { WixMediaImage } from '@/app/components/wixImageToUrl'
+
+function Capitalize(string) {
+  return string[0].toUpperCase() + string.substring(1)
+}
 
 export default function CategoryPage() {
   const pathname = usePathname()
@@ -22,28 +25,28 @@ export default function CategoryPage() {
   const [selectedItem, setSelectedItem] = useState(null)
   const [isOverlayOpen, setOverlayOpen] = useState(false)
   const [overlayImage, setOverlayImage] = useState(null)
-  const [data, setData] = useState(null)
-  const [categoryItems, setCategoryItems] = useState([])
+
+  const [isLoading, setIsLoading] = useState(true)
+  const [collectionItems, setCollectionItems] = useState([])
+
+  async function fetchItems() {
+    try {
+      const client = await wixClient()
+      const data = await client.items
+        .queryDataItems({
+          dataCollectionId: Capitalize(slug),
+        })
+        .find()
+      setCollectionItems(data.items)
+      console.log(data.items)
+      setIsLoading(false)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   useEffect(() => {
-    fetch('/data/data.json')
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data)
-
-        // Find the collection that matches the current slug
-        const collection = data.collections.find(
-          (collection) => collection.slug === slug
-        )
-
-        // If the collection exists, set its items to categoryItems state
-        if (collection) {
-          setCategoryItems(collection.items)
-        } else {
-          setCategoryItems([]) // Empty if no matching collection is found
-        }
-      })
-      .catch((error) => console.error('Error fetching data:', error))
+    fetchItems()
   }, [slug])
 
   const handleRequestQuote = (item) => {
@@ -77,53 +80,58 @@ export default function CategoryPage() {
         </p>
       </div>
 
-      {data ? (
-        <>
-          <div className="w-full flex flex-col md:flex-row md:flex-wrap md:justify-around md:gap-12 gap-6 md:border-t border-ag-ash md:pt-8">
-            {categoryItems.map((item, index) => (
-              <ScrollAnimationWrapper
-                variant="slideInBottom"
-                key={index}
-                className="item p-4 border border-gray-800 flex-shrink-0 flex flex-col gap-4 w-full md:w-1/4"
-              >
-                <h3 className="font-bold tracking-wider capitalize">
-                  {item.title}
-                </h3>
-
-                <div className="w-full aspect-[1/1] overflow-hidden cursor-pointer relative">
-                  <Image
-                    src={item.image}
-                    alt={`Artwork titled ${item.title} from the ${slug} collection`}
-                    className="w-full aspect-[1/1] hover:scale-110"
-                    width={300}
-                    height={200}
-                    onClick={() => handleImageClick(item.image, item.title)}
-                  />
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-gray-950 via-transparent to-transparent flex items-end justify-end p-2 md:p-2 pointer-events-none">
-                    <RiFullscreenFill />
-                  </div>
-                </div>
-
-                <p className="text-ag-ash">{item.description}</p>
-
-                <div className="w-full flex items-center justify-end">
-                  <Link
-                    class="bg-ag-white hover:bg-ag-brown text-sm text-ag-black px-4 py-2 font-lato font-normal"
-                    type="button"
-                    aria-label={`Request a quote for ${item.title}`}
-                    href="/shop"
-                  >
-                    get yours
-                  </Link>
-                </div>
-              </ScrollAnimationWrapper>
-            ))}
-          </div>
-        </>
-      ) : (
+      {isLoading ? (
         <div className="w-full h-[50vh] flex items-center">
           <Loader />
         </div>
+      ) : (
+        <>
+          <div className="w-full flex flex-col md:flex-row md:flex-wrap md:justify-around md:gap-12 gap-6 md:border-t border-ag-ash md:pt-8">
+            {collectionItems.map((piece, index) => {
+              const item = piece.data;
+
+              return (
+                <ScrollAnimationWrapper
+                  variant="slideInBottom"
+                  key={index}
+                  className="item p-4 border border-gray-800 flex-shrink-0 flex flex-col gap-4 w-full md:w-1/4"
+                >
+                  <h3 className="font-bold tracking-wider capitalize">
+                    {item.title}
+                  </h3>
+
+                  <div className="w-full aspect-[1/1] overflow-hidden cursor-pointer relative">
+                    
+                    <WixMediaImage
+                      media={item.image}
+                      alt={`ambient graphics ${item.description}`}
+                      // width={300}
+                      // height={200}
+                      className='w-full aspect-[1/1] hover:scale-110'
+                      
+                    />
+                    <div className="absolute bottom-1 right-1 bg-black bg-opacity-50 p-4 rounded-full" onClick={() => handleImageClick(item.image, item.title)}>
+                      <RiFullscreenFill />
+                    </div>
+                  </div>
+
+                  <p className="text-ag-ash">{item.description}</p>
+
+                  <div className="w-full flex items-center justify-end">
+                    <Link
+                      className="bg-ag-white hover:bg-ag-brown text-sm text-ag-black px-4 py-2 font-lato font-normal"
+                      type="button"
+                      aria-label={`Request a quote for ${item.title}`}
+                      href="/shop"
+                    >
+                      get yours
+                    </Link>
+                  </div>
+                </ScrollAnimationWrapper>
+              )
+            })}
+          </div>
+        </>
       )}
 
       {isModalOpen && (

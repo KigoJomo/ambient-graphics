@@ -17,7 +17,6 @@ const HomeCollections = () => {
         })
         .find()
       setCollections(data.items)
-      console.log(data.items);
     } catch (err) {
       console.error(err);
     }

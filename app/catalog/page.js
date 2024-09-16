@@ -52,7 +52,6 @@ const CatalogPage = () => {
           // Step 2: Fetch items for each category
           const collectionsWithItems = await Promise.all(
             collectionsData.map(async (collection) => {
-              console.log(collection.data.title);
               const items = await fetchCollectionItems(collection.data.title) // assuming 'tag' corresponds to the collection type like 'paintings'
               return {
                 ...collection,
@@ -91,12 +90,12 @@ const CatalogPage = () => {
             <div className="details w-full flex flex-col gap-4 flex-grow-0 flex-shrink-0">
               <div className="w-full flex flex-col gap-4">
                 <ScrollAnimationWrapper className={``} variant="slideInBottom" duration={0.5}>
-                  <h2 className={`text-5xl md:text-7xl mix-blend-exclusion md:tracking-wider md:text-nowrap `}>
+                  <h2 className={`text-5xl md:text-7xl md:tracking-wider md:text-nowrap `}>
                     {collection.data.title}
                   </h2>
                 </ScrollAnimationWrapper>
                 <ScrollAnimationWrapper variant="slideInBottom" duration={1.0} className="">
-                  <p className={`w-[90%] md:w-3/5`}>{collection.data.description}</p>
+                  <p className={`w-[90%] md:w-3/5 text-ag-ash`}>{collection.data.description}</p>
                 </ScrollAnimationWrapper>
               </div>
 
