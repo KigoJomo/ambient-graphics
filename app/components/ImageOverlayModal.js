@@ -1,19 +1,13 @@
-// app/components/ImageOverlayModal.js
-
-import React, { useState } from 'react'
-import Image from 'next/image'
+import React from 'react'
 import ScrollAnimationWrapper from './ScrollAnimationWrapper'
-import Loader from './Loader'
 import { WixMediaImage } from './wixImageToUrl'
 
 const ImageOverlayModal = ({ imageSrc, imageAlt, onClose }) => {
-  const [isLoading, setIsLoading] = useState(true) // State to manage loading
-
   return (
     <ScrollAnimationWrapper
       duration={0.3}
       variant="scale"
-      className="fixed inset-0 bg-black bg-opacity-10 backdrop-blur-3xl flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-3xl flex items-center justify-center z-50"
     >
       <button
         onClick={onClose}
@@ -22,22 +16,11 @@ const ImageOverlayModal = ({ imageSrc, imageAlt, onClose }) => {
         &times;
       </button>
 
-      <div className="w-full h-full flex items-center justify-center relative">
-        
-        {/* {isLoading && (
-          <div className="absolute">
-            <Loader />
-          </div>
-        )} */}
-
+      <div className="w-full h-full flex items-center justify-center relative p-4">
         <WixMediaImage
-          media={imageSrc}
+          imageId={imageSrc}
           alt={imageAlt}
-          // width={500}
-          // height={500}
-          className="w-screen md:h-[90%] md:w-auto object-contain"
-          style={{ maxWidth: '100%', height: 'auto' }}
-          // onLoadingComplete={() => setIsLoading(false)}
+          className="w-full h-full object-contain"
           optimize={false}
         />
       </div>

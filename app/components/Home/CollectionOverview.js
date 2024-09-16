@@ -27,7 +27,6 @@ const CollectionOverview = ({ collections }) => {
   return (
     <div className="w-full flex flex-col gap-0">
       {collections.map((collection, index) => {
-
         return (
           <div key={index} className="flex flex-col gap-0 border-t">
             <div
@@ -63,7 +62,7 @@ const CollectionOverview = ({ collections }) => {
 
                   <ScrollAnimationWrapper className="image w-3/5 md:w-full aspect-[2/3] md:aspect-[3/4] shadow-md shadow-ag-black">
                     <WixMediaImage
-                      media={collection.data.coverImage}
+                      imageId={collection.data.coverImage}
                       alt={`ambient graphics ${collection.data.title}`}
                       width={1000}
                       height={1000}

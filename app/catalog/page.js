@@ -18,9 +18,11 @@ const CatalogPage = () => {
   const fetchCollections = async () => {
     try {
       const client = await wixClient() // initialize wixClient
-      const collectionsData = await client.items.queryDataItems({
-        dataCollectionId: 'Collections',
-      }).find()
+      const collectionsData = await client.items
+        .queryDataItems({
+          dataCollectionId: 'Collections',
+        })
+        .find()
 
       return collectionsData.items // Return array of collections
     } catch (error) {
@@ -32,9 +34,11 @@ const CatalogPage = () => {
   const fetchCollectionItems = async (collectionType) => {
     try {
       const client = await wixClient()
-      const data = await client.items.queryDataItems({
-        dataCollectionId: collectionType
-      }).find()
+      const data = await client.items
+        .queryDataItems({
+          dataCollectionId: collectionType,
+        })
+        .find()
 
       return data.items // Return fetched items for a particular collection
     } catch (error) {
@@ -55,7 +59,7 @@ const CatalogPage = () => {
               const items = await fetchCollectionItems(collection.data.title) // assuming 'tag' corresponds to the collection type like 'paintings'
               return {
                 ...collection,
-                items: items || [] // Add fetched items to the collection data
+                items: items || [], // Add fetched items to the collection data
               }
             })
           )
@@ -82,20 +86,33 @@ const CatalogPage = () => {
           <Loader />
         </div>
       ) : (
-        collections && collections.map((collection, collectionIndex) => (
+        collections &&
+        collections.map((collection, collectionIndex) => (
           <div
             key={collection.data.title}
             className="collection w-full bg-transparent flex flex-col gap-4 pb-16"
           >
             <div className="details w-full flex flex-col gap-4 flex-grow-0 flex-shrink-0">
               <div className="w-full flex flex-col gap-4">
-                <ScrollAnimationWrapper className={``} variant="slideInBottom" duration={0.5}>
-                  <h2 className={`text-5xl md:text-7xl md:tracking-wider md:text-nowrap `}>
+                <ScrollAnimationWrapper
+                  className={``}
+                  variant="slideInBottom"
+                  duration={0.5}
+                >
+                  <h2
+                    className={`text-5xl md:text-7xl md:tracking-wider md:text-nowrap `}
+                  >
                     {collection.data.title}
                   </h2>
                 </ScrollAnimationWrapper>
-                <ScrollAnimationWrapper variant="slideInBottom" duration={1.0} className="">
-                  <p className={`w-[90%] md:w-3/5 text-ag-ash`}>{collection.data.description}</p>
+                <ScrollAnimationWrapper
+                  variant="slideInBottom"
+                  duration={1.0}
+                  className=""
+                >
+                  <p className={`w-[90%] md:w-3/5 text-ag-ash`}>
+                    {collection.data.description}
+                  </p>
                 </ScrollAnimationWrapper>
               </div>
 
@@ -103,21 +120,38 @@ const CatalogPage = () => {
                 {collection.items.slice(0, 3).map((item, itemIndex) => (
                   <ScrollAnimationWrapper
                     key={item.data.title}
-                    duration={1 + (itemIndex / 2)}
+                    duration={1 + itemIndex / 2}
                     variant="slideInBottom"
                     className={`aspect-[2/3] overflow-hidden ${
-                      (collectionIndex % 2 === 0 && itemIndex === 2) || (collectionIndex % 2 === 1 && itemIndex === 0)
+                      (collectionIndex % 2 === 0 && itemIndex === 2) ||
+                      (collectionIndex % 2 === 1 && itemIndex === 0)
                         ? 'w-[59%] md:w-1/4'
                         : 'w-[39%] md:w-1/4'
                     } 
-                      ${collectionIndex % 2 === 1 && itemIndex === 1 && 'order-3 md:order-2'}
-                      ${collectionIndex % 2 === 1 && itemIndex === 2 && 'order-4 md:order-3'}
-                      ${collectionIndex % 2 === 0 && itemIndex === 2 && 'md:order-3'}
-                      ${collectionIndex % 2 === 0 && itemIndex === 1 && 'md:order-3'}
+                      ${
+                        collectionIndex % 2 === 1 &&
+                        itemIndex === 1 &&
+                        'order-3 md:order-2'
+                      }
+                      ${
+                        collectionIndex % 2 === 1 &&
+                        itemIndex === 2 &&
+                        'order-4 md:order-3'
+                      }
+                      ${
+                        collectionIndex % 2 === 0 &&
+                        itemIndex === 2 &&
+                        'md:order-3'
+                      }
+                      ${
+                        collectionIndex % 2 === 0 &&
+                        itemIndex === 1 &&
+                        'md:order-3'
+                      }
                     `}
                   >
                     <WixMediaImage
-                      media={item.data.image}
+                      imageId={item.data.image}
                       alt={`ambient graphics ${item.data.description}`}
                       width={1000}
                       height={1000}
@@ -129,9 +163,16 @@ const CatalogPage = () => {
                 <ScrollAnimationWrapper
                   variant="slideInBottom"
                   duration={1.5}
-                  className={`flex justify-center ${collectionIndex % 2 === 0 ? 'order-4 md:order-2' : 'order-2 md:order-4'}`}
+                  className={`flex justify-center ${
+                    collectionIndex % 2 === 0
+                      ? 'order-4 md:order-2'
+                      : 'order-2 md:order-4'
+                  }`}
                 >
-                  <RoundLink href={`/catalog/${collection.data.title.toLowerCase()}`} text="explore" />
+                  <RoundLink
+                    href={`/catalog/${collection.data.title.toLowerCase()}`}
+                    text="explore"
+                  />
                 </ScrollAnimationWrapper>
               </div>
             </div>

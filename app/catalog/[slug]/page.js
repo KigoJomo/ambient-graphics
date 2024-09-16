@@ -88,7 +88,7 @@ export default function CategoryPage() {
         <>
           <div className="w-full flex flex-col md:flex-row md:flex-wrap md:justify-around md:gap-12 gap-6 md:border-t border-ag-ash md:pt-8">
             {collectionItems.map((piece, index) => {
-              const item = piece.data;
+              const item = piece.data
 
               return (
                 <ScrollAnimationWrapper
@@ -101,16 +101,17 @@ export default function CategoryPage() {
                   </h3>
 
                   <div className="w-full aspect-[1/1] overflow-hidden cursor-pointer relative">
-                    
                     <WixMediaImage
-                      media={item.image}
+                      imageId={item.image}
                       alt={`ambient graphics ${item.description}`}
-                      // width={300}
-                      // height={200}
-                      className='w-full aspect-[1/1] hover:scale-110'
-                      
+                      width={300}
+                      height={200}
+                      className="w-full aspect-[1/1] hover:scale-110"
                     />
-                    <div className="absolute bottom-1 right-1 bg-black bg-opacity-50 p-4 rounded-full" onClick={() => handleImageClick(item.image, item.title)}>
+                    <div
+                      className="absolute bottom-1 right-1 bg-black bg-opacity-50 p-4 rounded-full"
+                      onClick={() => handleImageClick(item.image, item.title)}
+                    >
                       <RiFullscreenFill />
                     </div>
                   </div>
