@@ -24,19 +24,21 @@ const ImageOverlayModal = ({ imageSrc, imageAlt, onClose }) => {
 
       <div className="w-full h-full flex items-center justify-center relative">
         
-        {isLoading && (
+        {/* {isLoading && (
           <div className="absolute">
             <Loader />
           </div>
-        )}
+        )} */}
 
         <WixMediaImage
           media={imageSrc}
           alt={imageAlt}
-          width={500}
-          height={500}
-          className="object-contain w-full h-full"
-          onLoadingComplete={() => setIsLoading(false)}
+          // width={500}
+          // height={500}
+          className="w-screen md:h-[90%] md:w-auto object-contain"
+          style={{ maxWidth: '100%', height: 'auto' }}
+          // onLoadingComplete={() => setIsLoading(false)}
+          optimize={false}
         />
       </div>
     </ScrollAnimationWrapper>
