@@ -71,11 +71,8 @@ export default function CategoryPage() {
             <p>Back</p>
           </button>
         </div>
-        <SplitWord
-          word={slug.replace(/%20/g, ' ')}
-          className="text-4xl md:text-[11.5rem] md:leading-[11.5rem] hidden md:flex"
-        />
-        <h1 className="text-4xl md:text-[11.5rem] md:leading-[11.5rem] text-center md:hidden">
+        
+        <h1 className="text-4xl md:text-[11.5rem] md:leading-[11.5rem] text-center">
           {slug.replace(/%20/g, ' ')}
         </h1>
         <p className="text-center text-ag-ash mt-2">
@@ -89,7 +86,7 @@ export default function CategoryPage() {
         </div>
       ) : (
         <>
-          <div className="w-full flex flex-col md:flex-row md:flex-wrap md:justify-around md:gap-12 gap-6 md:border-t border-ag-ash md:pt-8">
+          <div className="w-full flex flex-col md:flex-row md:flex-wrap md:justify-center md:gap-12 gap-6 md border-ag-ash md:pt-8 md:px-12">
             {collectionItems.map((piece, index) => {
               const item = piece.data
 
