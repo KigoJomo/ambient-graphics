@@ -53,6 +53,26 @@
   transform: translate(-50%, -50%) scale(1.1);
 }
 
+.hamburger-open span {
+  width: 32px;
+  height: 2px;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: calc(-32px / 2);
+  margin-top: calc(-2px / 2);
+  transition: transform 200ms;
+}
+.hamburger-open span:nth-of-type(1) {
+  transform: translate3d(0, 0, 0) rotate(45deg);
+}
+.hamburger-open span:nth-of-type(2) {
+  width: 100%;
+  transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+
 h1,
 h1 span,
 h2,

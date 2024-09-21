@@ -1,11 +1,29 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 
 const CustomCursor = () => {
   const cursorRef = useRef(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768) // Adjust the breakpoint as needed
+    }
+
+    // Initial check
+    handleResize()
+    
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return; // Exit if it's mobile
+
     const cursor = cursorRef.current
     const links = document.querySelectorAll('a, button')
     let initCursor = false
@@ -27,10 +45,8 @@ const CustomCursor = () => {
       initCursor = false
     }
 
-    const addLinkHover = (e) =>
-      cursor.classList.add('custom-cursor--link')
-    const removeLinkHover = (e) =>
-      cursor.classList.remove('custom-cursor--link')
+    const addLinkHover = () => cursor.classList.add('custom-cursor--link')
+    const removeLinkHover = () => cursor.classList.remove('custom-cursor--link')
 
     links.forEach((link) => {
       link.addEventListener('mouseover', addLinkHover)
@@ -48,13 +64,11 @@ const CustomCursor = () => {
       window.removeEventListener('mousemove', onMouseMove)
       window.removeEventListener('mouseout', onMouseOut)
     }
-  }, [])
+  }, [isMobile])
 
-  return (
-    <>
-      <div ref={cursorRef} className="custom-cursor"></div>
-    </>
-  )
+  return !isMobile ? (
+    <div ref={cursorRef} className="custom-cursor"></div>
+  ) : null
 }
 
 export default CustomCursor

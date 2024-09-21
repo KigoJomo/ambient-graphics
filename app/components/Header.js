@@ -28,13 +28,15 @@ const Header = () => {
             className="w-28"
           />
         </Link>
+
         <button
-          className="menu-button w-8 h-4 flex flex-col items-end gap-1"
+          className={`menu-button w-8 h-8 flex flex-col items-end justify-center gap-1 relative ${menuOpen && 'hamburger-open'} `}
           onClick={toggleMenu}
         >
           <span className="w-full h-0.5 bg-white"></span>
           <span className="w-3/4 h-0.5 bg-white"></span>
         </button>
+
         <nav
           className={`w-screen absolute top-full flex flex-col items-center backdrop-blur-3xl py-4 px-6 ${
             menuOpen ? "left-0" : "left-full"
@@ -56,6 +58,7 @@ const Header = () => {
           </p>
         </nav>
       </div>
+
       <div className="desktop-nav w-full h-full px-6 hidden md:flex items-center justify-between relative">
         <nav className="flex items-center gap-8">
           <Link href="/" className="uppercase text-ag-ash">
