@@ -36,7 +36,7 @@ const CatalogPage = () => {
       const client = await wixClient()
       const data = await client.items
         .queryDataItems({
-          dataCollectionId: collectionType,
+          dataCollectionId: collectionType.replace(/ /g, ''),
         })
         .find()
 

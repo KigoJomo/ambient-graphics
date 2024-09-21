@@ -34,7 +34,7 @@ export default function CategoryPage() {
       const client = await wixClient()
       const data = await client.items
         .queryDataItems({
-          dataCollectionId: Capitalize(slug),
+          dataCollectionId: Capitalize(slug.replace(/%20/g, '')),
         })
         .find()
       setCollectionItems(data.items)
@@ -72,11 +72,14 @@ export default function CategoryPage() {
           </button>
         </div>
         <SplitWord
-          word={slug}
-          className="text-4xl md:text-[11.5rem] md:leading-[11.5rem]"
+          word={slug.replace(/%20/g, ' ')}
+          className="text-4xl md:text-[11.5rem] md:leading-[11.5rem] hidden md:flex"
         />
+        <h1 className="text-4xl md:text-[11.5rem] md:leading-[11.5rem] text-center md:hidden">
+          {slug.replace(/%20/g, ' ')}
+        </h1>
         <p className="text-center text-ag-ash mt-2">
-          Explore our exclusive collection of {slug}
+          Explore our exclusive collection of {slug.replace(/%20/g, ' ')}
         </p>
       </div>
 
@@ -106,7 +109,7 @@ export default function CategoryPage() {
                       alt={`ambient graphics ${item.description}`}
                       width={300}
                       height={200}
-                      className="w-full aspect-[1/1] hover:scale-110"
+                      className="h-full aspect-[1/1] hover:scale-110"
                     />
                     <div
                       className="absolute bottom-1 right-1 bg-black bg-opacity-50 p-4 rounded-full"
