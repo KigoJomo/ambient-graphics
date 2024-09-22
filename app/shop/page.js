@@ -1,19 +1,44 @@
 // app/shop/page.js
 'use client'
 
-import { useState, useRef } from 'react'
+import { useContext, useEffect, useState, useRef } from 'react'
 import CustomButton from '@/app/components/CustomButton'
 import ArtCategoryCard from '@/app/components/ArtCategoryCard'
 import SpecificationsForm from '@/app/components/SpecificationsForm'
 import QuoteSummary from '@/app/components/QuoteSummary'
 import ConfirmationModal from '@/app/components/ConfirmationModal'
 import SplitWord from '../components/SplitWord'
+import { wixClient } from '../hooks/wixClient'
+import { CollectionsContext } from '../context/CollectionsContext'
 
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [customizationData, setCustomizationData] = useState(null)
   const [isQuoteRequested, setIsQuoteRequested] = useState(false)
   const [isConfirmationOpen, setConfirmationOpen] = useState(false)
+
+  // const [collections, setCollections] = useState([])
+
+  // const fetchCollections = async () => {
+  //   try {
+  //     const client = await wixClient() // initialize wixClient
+  //     const collectionsData = await client.items
+  //       .queryDataItems({
+  //         dataCollectionId: 'Collections',
+  //       })
+  //       .find()
+
+  //     setCollections(collectionsData.items)
+  //   } catch (error) {
+  //     console.error('Error fetching collections:', error)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   fetchCollections()
+  // }, [])
+
+  const collections = useContext(CollectionsContext)
 
   const quoteSummaryRef = useRef(null)
   const customizationsRef = useRef(null)
@@ -67,17 +92,16 @@ export default function ShopPage() {
         <h2 className="text-2xl md:text-4xl font-bold text-center">
           Select Your Art Type
         </h2>
+
         <div className="flex flex-wrap justify-center gap-4">
-          <ArtCategoryCard category="Murals" onSelect={handleCategorySelect} />
-          <ArtCategoryCard
-            category="Portraits"
-            onSelect={handleCategorySelect}
-          />
-          <ArtCategoryCard
-            category="Paintings"
-            onSelect={handleCategorySelect}
-          />
-          <ArtCategoryCard category="Posters" onSelect={handleCategorySelect} />
+          {collections.map((collection, index) => (
+            <ArtCategoryCard
+              key={index}
+              category={collection.data.title}
+              imageId={collection.data.coverImage}
+              onSelect={handleCategorySelect}
+            />
+          ))}
         </div>
       </div>
 

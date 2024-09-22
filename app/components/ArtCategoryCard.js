@@ -1,8 +1,9 @@
 // app/components/ArtCategoryCard.js
 import Image from 'next/image'
+import { WixMediaImage } from './wixImageToUrl'
 import ScrollAnimationWrapper from './ScrollAnimationWrapper'
 
-export default function ArtCategoryCard({ category, onSelect }) {
+export default function ArtCategoryCard({ category, imageId, onSelect }) {
   const handleSelect = () => {
     onSelect(category)
   }
@@ -17,12 +18,18 @@ export default function ArtCategoryCard({ category, onSelect }) {
       className="art-category-card p-2 md:p-4 border border-gray-800 cursor-pointer hover:bg-gray-900 transition w-[45%] md:w-64"
       onClick={handleSelect}
     >
-      <Image
+      {/* <Image
         src={`/images/${category.toLowerCase()}/${categoryWithoutTrailingS.toLowerCase()}3.webp`}
         alt={category}
         width={200}
         height={200}
         className="w-full aspect-square object-cover mb-4"
+      /> */}
+      <WixMediaImage
+        imageId={imageId}
+        alt={`ambient graphics ${category}`}
+        width={500}
+        height={500}
       />
       <h3 className="text-xl font-semibold capitalize text-center">
         {category}

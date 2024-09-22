@@ -1,37 +1,28 @@
 // app/catalog/page.js
 
 'use client'
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
+import { useState, useEffect, useContext } from 'react'
 import SplitWord from '../components/SplitWord'
 import RoundLink from '../components/RoundLink'
 import ScrollAnimationWrapper from '../components/ScrollAnimationWrapper'
 import Loader from '../components/Loader'
 import { wixClient } from '../hooks/wixClient'
 import { WixMediaImage } from '../components/wixImageToUrl'
+import { CollectionsContext } from '../context/CollectionsContext'
 
 const CatalogPage = () => {
-  const [collections, setCollections] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
-  // Fetch data from 'Collections' collection first
-  const fetchCollections = async () => {
-    try {
-      const client = await wixClient() // initialize wixClient
-      const collectionsData = await client.items
-        .queryDataItems({
-          dataCollectionId: 'Collections',
-        })
-        .find()
-
-      return collectionsData.items // Return array of collections
-    } catch (error) {
-      console.error('Error fetching collections:', error)
-    }
-  }
+  const [collections, setCollections] = useState(null)
 
   // Fetch individual items for each art collection (Murals, Paintings, etc.)
   const fetchCollectionItems = async (collectionType) => {
+    const cachedItems = sessionStorage.getItem(`collection-${collectionType}`)
+
+    if(cachedItems){
+      return JSON.parse(cachedItems)
+    }
+
     try {
       const client = await wixClient()
       const data = await client.items
@@ -40,30 +31,35 @@ const CatalogPage = () => {
         })
         .find()
 
-      return data.items // Return fetched items for a particular collection
+        sessionStorage.setItem(`collection-${collectionType}`, JSON.stringify(data.items))
+
+      return data.items
     } catch (error) {
       console.error(`Error fetching items from ${collectionType}:`, error)
     }
   }
 
+  // Step 1: Fetch overall collections data (categories)
+  const collectionsData = useContext(CollectionsContext)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Step 1: Fetch overall collections data (categories)
-        const collectionsData = await fetchCollections()
-
         if (collectionsData) {
-          // Step 2: Fetch items for each category
+          // Step 2: Fetch items for each category only if not already available
           const collectionsWithItems = await Promise.all(
             collectionsData.map(async (collection) => {
-              const items = await fetchCollectionItems(collection.data.title) // assuming 'tag' corresponds to the collection type like 'paintings'
-              return {
-                ...collection,
-                items: items || [], // Add fetched items to the collection data
+              if (!collection.items || collection.items.length === 0) {
+                const items = await fetchCollectionItems(collection.data.title)
+                return {
+                  ...collection,
+                  items: items || [], // Add fetched items to the collection data
+                }
               }
+              return collection; // Return collection as-is if items already exist
             })
           )
-
+  
           // Step 3: Set the full data (categories + items)
           setCollections(collectionsWithItems)
           setIsLoading(false)
@@ -73,9 +69,10 @@ const CatalogPage = () => {
         setIsLoading(false)
       }
     }
-
+  
     fetchData()
-  }, [])
+  }, [collectionsData])
+  
 
   return (
     <section className="catalog-page h-fit flex flex-col gap-16">
