@@ -6,7 +6,7 @@ import TypewriterComponent from '../TypewriterComponent'
 
 const HomeAbout = () => {
   return (
-    <section className="h-fit flex flex-col gap-0">
+    <section className="h-fit flex flex-col gap-0 pb-12">
       <div className="top w-full md:h-[65vh] flex flex-col md:flex-row gap-4 relative">
         <div className="image w-auto md:w-[40vw] absolute opacity-5 -right-36 -top-12 md:-right-12 md:-top-24 -z-10">
           <Image

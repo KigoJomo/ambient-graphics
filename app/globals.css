@@ -148,16 +148,18 @@ img {
   -webkit-text-stroke: 1px var(--ag-white);
 }
 
-.text-ag-brown span {
+.text-ag-brown * {
   color: var(--ag-brown);
+  stroke: var(--ag-brown);
 }
 
 .text-ag-black span {
   color: var(--ag-black);
 }
 
-.text-ag-ash span {
+.text-ag-ash * {
   color: var(--ag-ash);
+  stroke: var(--ag-ash);
 }
 
 .round-button {
