@@ -23,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex flex-col relative bg-ag-black">
+      <body className="flex flex-col relative">
         <CustomCursor />
         <Header />
         <main className="overflow-hidden flex flex-col flex-shrink-0 flex-grow-0">

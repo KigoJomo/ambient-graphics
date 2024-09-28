@@ -237,6 +237,7 @@ html body {
   overflow-y: scroll;
   /* cursor: url('/images/cursor-default.webp'), auto; */
   cursor: none;
+  background: url("/images/bg.webp") center/cover no-repeat;
 }
 html body::-webkit-scrollbar {
   display: none;

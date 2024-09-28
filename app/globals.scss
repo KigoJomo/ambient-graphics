@@ -281,6 +281,11 @@ html {
     }
     /* cursor: url('/images/cursor-default.webp'), auto; */
     cursor: none;
+    background: url('/images/bg.webp') center/cover no-repeat;
+
+    header{
+      // background: url('/images/bg.webp') center/cover no-repeat;
+    }
 
     main {
       width: 100%;

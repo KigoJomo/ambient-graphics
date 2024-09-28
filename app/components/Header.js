@@ -17,49 +17,49 @@ const Header = () => {
   };
 
   return (
-    <header className="w-screen h-16 flex-shrink-0 sticky -top-[2px] z-10 bg-ag-black">
-      <div className="mobile-navigation w-full h-full px-6 flex md:hidden items-center justify-between relative">
-        <Link href="/">
-          <Image
-            src="/images/logo.webp"
-            alt="ambient graphics"
-            width="1000"
-            height="1000"
-            className="w-28"
-          />
-        </Link>
-
-        <button
-          className={`menu-button w-8 h-8 flex flex-col items-end justify-center gap-1 relative ${menuOpen && 'hamburger-open'} `}
-          onClick={toggleMenu}
-        >
-          <span className="w-full h-0.5 bg-white"></span>
-          <span className="w-3/4 h-0.5 bg-white"></span>
-        </button>
+    <header className="w-screen h-16 flex-shrink-0 sticky -top-[2px] z-10">
+      <div className="mobile-navigation w-full h-full flex md:hidden items-center justify-between relative">
+        <div className="w-full h-full px-6 backdrop-blur z-[11] flex items-center justify-between">
+          <Link href="/" className="">
+            <Image
+              src="/images/logo.webp"
+              alt="ambient graphics"
+              width="1000"
+              height="1000"
+              className="w-28"
+            />
+          </Link>
+          <button
+            className={`menu-button w-8 h-8 flex flex-col items-end justify-center gap-1 relative ${menuOpen && 'hamburger-open'} `}
+            onClick={toggleMenu}
+          >
+            <span className="w-full h-0.5 bg-white"></span>
+            <span className="w-3/4 h-0.5 bg-white"></span>
+          </button>
+        </div>
 
         <nav
-          className={`w-screen absolute top-full flex flex-col items-center backdrop-blur-3xl py-4 px-6 ${
+          className={`w-screen h-[102vh] z-10 absolute top-0 flex flex-col items-center bg-ag-black pt-24 pb-16 px-6 ${
             menuOpen ? "left-0" : "left-full"
           }`}
-          style={{ height: "calc(100dvh - 4rem)" }}
         >
           {pages.map((page, index) => (
             <Link
               key={index}
               href={page === "home" ? "/" : `/${page}`}
-              className="capitalize border-b py-6 px-4 w-full"
+              className="capitalize border-b py-6 px-4 w-full text-center"
               onClick={closeMenu}
             >
               {page}
             </Link>
           ))}
-          <p className="capitalize absolute bottom-6">
+          <p className="capitalize mt-auto">
             copyright 2024 © ambient graphics
           </p>
         </nav>
       </div>
 
-      <div className="desktop-nav w-full h-full px-6 hidden md:flex items-center justify-between relative">
+      <div className="desktop-nav w-full h-full px-6 backdrop-blur-3xl hidden md:flex items-center justify-between relative">
         <nav className="flex items-center gap-8">
           <Link href="/" className="uppercase text-ag-ash">
             Home

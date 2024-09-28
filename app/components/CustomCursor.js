@@ -50,6 +50,7 @@ const CustomCursor = () => {
 
     links.forEach((link) => {
       link.addEventListener('mouseover', addLinkHover)
+      link.addEventListener('mousein', addLinkHover)
       link.addEventListener('mouseout', removeLinkHover)
     })
 
@@ -59,6 +60,7 @@ const CustomCursor = () => {
     return () => {
       links.forEach((link) => {
         link.removeEventListener('mouseover', addLinkHover)
+        link.removeEventListener('mousein', addLinkHover)
         link.removeEventListener('mouseout', removeLinkHover)
       })
       window.removeEventListener('mousemove', onMouseMove)
