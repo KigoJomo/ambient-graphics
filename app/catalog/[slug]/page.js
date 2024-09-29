@@ -86,7 +86,7 @@ export default function CategoryPage() {
         </div>
       ) : (
         <>
-          <div className="w-full columns-2 md:columns-3 gap-4">
+          <div className="w-full md:mt-12 columns-2 md:columns-3 gap-4 md:gap-12">
             {collectionItems.map((piece, index) => {
               const item = piece.data
 
@@ -104,7 +104,7 @@ export default function CategoryPage() {
                     alt={`ambient graphics ${item.description}`}
                     width={item.images[0].settings.width}
                     height={item.images[0].settings.height}
-                    className="w-full hover:scale-110"
+                    className="w-full"
                   />
 
                   {/* <h3 className="font-bold tracking-wider capitalize">
