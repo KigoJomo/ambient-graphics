@@ -2,7 +2,7 @@ import React from 'react'
 import ScrollAnimationWrapper from './ScrollAnimationWrapper'
 import { WixMediaImage } from './wixImageToUrl'
 
-const ImageOverlayModal = ({ imageSrc, imageAlt, onClose }) => {
+const ImageOverlayModal = ({ imageSrc, imageAlt, onClose, height, width }) => {
   return (
     <ScrollAnimationWrapper
       duration={0.3}
@@ -16,10 +16,12 @@ const ImageOverlayModal = ({ imageSrc, imageAlt, onClose }) => {
         &times;
       </button>
 
-      <div className="w-full h-full flex items-center justify-center relative p-4">
+      <div className="w-full h-full flex items-center justify-center relative">
         <WixMediaImage
           imageId={imageSrc}
           alt={imageAlt}
+          width={width}
+          height={height}
           className="w-full h-full object-contain"
           optimize={false}
         />
