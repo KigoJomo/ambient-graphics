@@ -102,7 +102,7 @@ export default function CategoryPage() {
 
                   <div className="w-full aspect-[1/1] overflow-hidden cursor-pointer relative">
                     <WixMediaImage
-                      imageId={item.image}
+                      imageId={item.images[0].src}
                       alt={`ambient graphics ${item.description}`}
                       width={300}
                       height={200}
@@ -110,7 +110,7 @@ export default function CategoryPage() {
                     />
                     <div
                       className="absolute bottom-1 right-1 bg-black bg-opacity-50 p-4 rounded-full"
-                      onClick={() => handleImageClick(item.image, item.title)}
+                      onClick={() => handleImageClick(item.images[0].src, item.title)}
                     >
                       <RiFullscreenFill />
                     </div>

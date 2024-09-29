@@ -88,7 +88,7 @@ const HomeLatest = () => {
         <div className="w-full flex items-center justify-between">
           <h2 className="uppercase">latest</h2>
           <Link
-            href="/shop"
+            href="/catalog"
             className="font-lato text-ag-ash uppercase underline underline-offset-4"
           >
             see all
@@ -110,7 +110,7 @@ const HomeLatest = () => {
                 {itemData.latestItem && (
                   <>
                     <WixMediaImage
-                      imageId={itemData.latestItem.data.image}
+                      imageId={itemData.latestItem.data.images[0].src}
                       alt={`Latest from ${itemData.collectionTitle}`}
                       width={1000}
                       height={1000}
