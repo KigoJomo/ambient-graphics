@@ -54,8 +54,8 @@ export default function CategoryPage() {
     setModalOpen(true)
   }
 
-  const handleImageClick = (imageSrc, imageAlt, height, width) => {
-    setOverlayImage({ src: imageSrc, alt: imageAlt, height: height, width: width })
+  const handleImageClick = (imageSrc, imageAlt, height, width, title, description, price) => {
+    setOverlayImage({ src: imageSrc, alt: imageAlt, height: height, width: width, title: title, description: description, price: price })
     setOverlayOpen(true)
   }
 
@@ -94,9 +94,9 @@ export default function CategoryPage() {
                 <ScrollAnimationWrapper
                   variant="slideInBottom"
                   key={index}
-                  className="item break-inside-avoid mb-8 flex-shrink-0 flex flex-col gap-4"
+                  className="item break-inside-avoid mb-8 md:mb-12 flex-shrink-0 flex flex-col gap-4"
                   onClick={() =>
-                    handleImageClick(item.images[0].src, item.title, item.images[0].settings.height, item.images[0].settings.width)
+                    handleImageClick(item.images[0].src, item.title, item.images[0].settings.height, item.images[0].settings.width, item.title, item.description, item.price)
                   }
                 >
                   <WixMediaImage
@@ -106,22 +106,6 @@ export default function CategoryPage() {
                     height={item.images[0].settings.height}
                     className="w-full"
                   />
-
-                  {/* <h3 className="font-bold tracking-wider capitalize">
-                    {item.title}
-                  </h3> */}
-
-                  {/* <p className="text-ag-ash">{item.description}</p>
-
-                  <Link
-                    className="bg-ag-white hover:bg-ag-brown text-sm text-ag-black px-4 py-2 font-lato font-normal"
-                    type="button"
-                    aria-label={`Request a quote for ${item.title}`}
-                    href="/shop"
-                  >
-                    get yours
-                  </Link> */}
-
                 </ScrollAnimationWrapper>
               )
             })}
@@ -139,6 +123,9 @@ export default function CategoryPage() {
           imageAlt={overlayImage.alt}
           height={overlayImage.height}
           width={overlayImage.width}
+          title={overlayImage.title}
+          description={overlayImage.description}
+          price={overlayImage.price}
           onClose={() => setOverlayOpen(false)}
         />
       )}

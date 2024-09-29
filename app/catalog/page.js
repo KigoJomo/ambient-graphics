@@ -9,6 +9,7 @@ import Loader from '../components/Loader'
 import { wixClient } from '../hooks/wixClient'
 import { WixMediaImage } from '../components/wixImageToUrl'
 import { CollectionsContext } from '../context/CollectionsContext'
+import $ from 'jquery'
 
 const CatalogPage = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -59,6 +60,14 @@ const CatalogPage = () => {
 
     fetchData()
   }, [collectionsData])
+
+  useEffect(() => {
+    $('img').mousedown(function (e) {
+      if (e.button === 2) { // right click
+        return false; // do nothing!
+      }
+    });
+  }, []);
 
   return (
     <section className="catalog-page h-fit flex flex-col gap-16">

@@ -132,6 +132,9 @@ img {
   -o-object-position: center;
      object-position: center;
   cursor: url("/images/img-cursor.webp"), auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .image img {
